@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="StraatrovenModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="overvallen">
+          <Key>
+            <PropertyRef Name="voorval_nr" />
+          </Key>
+          <Property Name="voorval_nr" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="datum" Type="varchar" MaxLength="20" />
+          <Property Name="uur" Type="int" />
+          <Property Name="dagsoort" Type="varchar" MaxLength="10" />
+          <Property Name="dagdeel" Type="varchar" MaxLength="20" />
+          <Property Name="dagdeel_naam" Type="nchar" MaxLength="20" />
+          <Property Name="plaats" Type="nchar" MaxLength="20" />
+          <Property Name="district" Type="int" />
+          <Property Name="district_naam" Type="nvarchar" MaxLength="20" />
+          <Property Name="buurt" Type="int" />
+          <Property Name="subbuurt" Type="int" />
+          <Property Name="straat" Type="nvarchar" MaxLength="50" />
+          <Property Name="opgelost" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="werkzoekende">
+          <Key>
+            <PropertyRef Name="buurt_naam" />
+            <PropertyRef Name="werkzoekende" />
+          </Key>
+          <Property Name="buurt_code" Type="nchar" MaxLength="20" />
+          <Property Name="gem_nr" Type="int" />
+          <Property Name="wijk_buurt" Type="int" />
+          <Property Name="wijk_code" Type="nchar" MaxLength="20" />
+          <Property Name="wijk_nr" Type="int" />
+          <Property Name="wijk_naam" Type="nchar" MaxLength="20" />
+          <Property Name="buurt_nr" Type="int" Nullable="false" />
+          <Property Name="buurt_naam" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="werkzoekende" Type="int" Nullable="false" />
+          <Property Name="leeftijd" Type="int" Nullable="false" />
+          <Property Name="gem_naam" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <Function Name="wz15" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="wz20" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="StraatrovenModelStoreContainer">
+          <EntitySet Name="overvallen" EntityType="Self.overvallen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="werkzoekende" EntityType="Self.werkzoekende" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StraatrovenModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="overvallen">
+          <Key>
+            <PropertyRef Name="voorval_nr" />
+          </Key>
+          <Property Name="voorval_nr" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="datum" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="uur" Type="Int32" />
+          <Property Name="dagsoort" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="dagdeel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="dagdeel_naam" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="plaats" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="district" Type="Int32" />
+          <Property Name="district_naam" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="buurt" Type="Int32" />
+          <Property Name="subbuurt" Type="Int32" />
+          <Property Name="straat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="opgelost" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="werkzoekende">
+          <Key>
+            <PropertyRef Name="buurt_naam" />
+            <PropertyRef Name="werkzoekende1" />
+          </Key>
+          <Property Name="buurt_code" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="gem_nr" Type="Int32" />
+          <Property Name="wijk_buurt" Type="Int32" />
+          <Property Name="wijk_code" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="wijk_nr" Type="Int32" />
+          <Property Name="wijk_naam" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="buurt_nr" Type="Int32" Nullable="false" />
+          <Property Name="buurt_naam" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="werkzoekende1" Type="Int32" Nullable="false" />
+          <Property Name="leeftijd" Type="Int32" Nullable="false" />
+          <Property Name="gem_naam" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="StraatrovenEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="overvallen" EntityType="Self.overvallen" />
+          <EntitySet Name="werkzoekende" EntityType="Self.werkzoekende" />
+          <FunctionImport Name="wz15" ReturnType="Collection(StraatrovenModel.wz15_Result)" />
+          <FunctionImport Name="wz20" ReturnType="Collection(StraatrovenModel.wz20_Result)" />
+        </EntityContainer>
+        <ComplexType Name="wz15_Result">
+          <Property Type="String" Name="bn" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="wz" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="wz20_Result">
+          <Property Type="String" Name="buurt_naam" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="werkzoekende" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StraatrovenModelStoreContainer" CdmEntityContainer="StraatrovenEntities">
+          <EntitySetMapping Name="overvallen">
+            <EntityTypeMapping TypeName="StraatrovenModel.overvallen">
+              <MappingFragment StoreEntitySet="overvallen">
+                <ScalarProperty Name="voorval_nr" ColumnName="voorval_nr" />
+                <ScalarProperty Name="datum" ColumnName="datum" />
+                <ScalarProperty Name="uur" ColumnName="uur" />
+                <ScalarProperty Name="dagsoort" ColumnName="dagsoort" />
+                <ScalarProperty Name="dagdeel" ColumnName="dagdeel" />
+                <ScalarProperty Name="dagdeel_naam" ColumnName="dagdeel_naam" />
+                <ScalarProperty Name="plaats" ColumnName="plaats" />
+                <ScalarProperty Name="district" ColumnName="district" />
+                <ScalarProperty Name="district_naam" ColumnName="district_naam" />
+                <ScalarProperty Name="buurt" ColumnName="buurt" />
+                <ScalarProperty Name="subbuurt" ColumnName="subbuurt" />
+                <ScalarProperty Name="straat" ColumnName="straat" />
+                <ScalarProperty Name="opgelost" ColumnName="opgelost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="werkzoekende">
+            <EntityTypeMapping TypeName="StraatrovenModel.werkzoekende">
+              <MappingFragment StoreEntitySet="werkzoekende">
+                <ScalarProperty Name="buurt_code" ColumnName="buurt_code" />
+                <ScalarProperty Name="gem_nr" ColumnName="gem_nr" />
+                <ScalarProperty Name="wijk_buurt" ColumnName="wijk_buurt" />
+                <ScalarProperty Name="wijk_code" ColumnName="wijk_code" />
+                <ScalarProperty Name="wijk_nr" ColumnName="wijk_nr" />
+                <ScalarProperty Name="wijk_naam" ColumnName="wijk_naam" />
+                <ScalarProperty Name="buurt_nr" ColumnName="buurt_nr" />
+                <ScalarProperty Name="buurt_naam" ColumnName="buurt_naam" />
+                <ScalarProperty Name="werkzoekende1" ColumnName="werkzoekende" />
+                <ScalarProperty Name="leeftijd" ColumnName="leeftijd" />
+                <ScalarProperty Name="gem_naam" ColumnName="gem_naam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="wz15" FunctionName="StraatrovenModel.Store.wz15">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StraatrovenModel.wz15_Result">
+                <ScalarProperty Name="bn" ColumnName="bn" />
+                <ScalarProperty Name="wz" ColumnName="wz" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="wz20" FunctionName="StraatrovenModel.Store.wz20">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StraatrovenModel.wz20_Result">
+                <ScalarProperty Name="buurt_naam" ColumnName="buurt_naam" />
+                <ScalarProperty Name="werkzoekende" ColumnName="werkzoekende" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
