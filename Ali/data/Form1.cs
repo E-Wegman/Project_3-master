@@ -23,15 +23,24 @@ namespace data
         {
             using (StraatrovenEntities db = new StraatrovenEntities())
             {
-                var data = db.wz15();
+                //var data = db.wz15();
+                //var dataT = db.wz20();
+                var data = db.wz16();
+
                 ColumnSeries col = new ColumnSeries() { DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
                 Axis ax = new Axis() { Separator = new Separator() { Step = 1, IsEnabled = false } };
                 ax.Labels = new List<string>();
                 foreach(var x in data)
+
                 {
                     col.Values.Add(x.wz);
+                    col.Values.Add(x.ov);
                     ax.Labels.Add(x.bn);
-                }
+                    ax.Labels.Add(x.bn);
+
+
+
+                    }
                 cartesianChart1.Series.Add(col);
                 cartesianChart1.AxisX.Add(ax);
                 cartesianChart1.AxisY.Add(new Axis
@@ -40,6 +49,11 @@ namespace data
                     Separator = new Separator() 
                 });
             }
+        }
+
+        private void cartesianChart1_ChildChanged(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
+        {
+
         }
     }
 }

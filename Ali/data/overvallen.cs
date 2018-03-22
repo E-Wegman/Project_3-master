@@ -15,7 +15,7 @@ namespace data
     public partial class overvallen
     {
         public string voorval_nr { get; set; }
-        public string datum { get; set; }
+        public Nullable<System.DateTime> datum { get; set; }
         public Nullable<int> uur { get; set; }
         public string dagsoort { get; set; }
         public string dagdeel { get; set; }
@@ -23,7 +23,7 @@ namespace data
         public string plaats { get; set; }
         public Nullable<int> district { get; set; }
         public string district_naam { get; set; }
-        public Nullable<int> buurt { get; set; }
+        public int buurt { get; set; }
         public Nullable<int> subbuurt { get; set; }
         public string straat { get; set; }
         public string opgelost { get; set; }

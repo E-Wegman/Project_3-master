@@ -10,19 +10,35 @@
             <PropertyRef Name="voorval_nr" />
           </Key>
           <Property Name="voorval_nr" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="datum" Type="varchar" MaxLength="20" />
+          <Property Name="datum" Type="date" />
           <Property Name="uur" Type="int" />
           <Property Name="dagsoort" Type="varchar" MaxLength="10" />
           <Property Name="dagdeel" Type="varchar" MaxLength="20" />
-          <Property Name="dagdeel_naam" Type="nchar" MaxLength="20" />
-          <Property Name="plaats" Type="nchar" MaxLength="20" />
+          <Property Name="dagdeel_naam" Type="varchar" MaxLength="20" />
+          <Property Name="plaats" Type="varchar" MaxLength="20" />
           <Property Name="district" Type="int" />
-          <Property Name="district_naam" Type="nvarchar" MaxLength="20" />
-          <Property Name="buurt" Type="int" />
+          <Property Name="district_naam" Type="varchar" MaxLength="20" />
+          <Property Name="buurt" Type="int" Nullable="false" />
           <Property Name="subbuurt" Type="int" />
-          <Property Name="straat" Type="nvarchar" MaxLength="50" />
-          <Property Name="opgelost" Type="nvarchar" MaxLength="10" />
+          <Property Name="straat" Type="varchar" MaxLength="50" />
+          <Property Name="opgelost" Type="varchar" MaxLength="10" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'straatroven.dbo.weer' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="weer">
+          <Property Name="datum" Type="date" />
+          <Property Name="uur" Type="int" />
+          <Property Name="gem_windsnelheid" Type="int" />
+          <Property Name="temp" Type="int" />
+          <Property Name="zon" Type="int" />
+          <Property Name="zicht" Type="int" />
+          <Property Name="bewolking" Type="int" />
+          <Property Name="mist" Type="bit" />
+          <Property Name="regen" Type="bit" />
+          <Property Name="sneeuw" Type="bit" />
+          <Property Name="onweer" Type="bit" />
+          <Property Name="ijsvorming" Type="bit" />
+        </EntityType>-->
         <EntityType Name="werkzoekende">
           <Key>
             <PropertyRef Name="buurt_naam" />
@@ -40,7 +56,12 @@
           <Property Name="leeftijd" Type="int" Nullable="false" />
           <Property Name="gem_naam" Type="nchar" MaxLength="10" />
         </EntityType>
+        <Function Name="Procedure" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="param1" Type="int" Mode="In" />
+          <Parameter Name="param2" Type="int" Mode="In" />
+        </Function>
         <Function Name="wz15" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="wz16" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="wz20" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="StraatrovenModelStoreContainer">
           <EntitySet Name="overvallen" EntityType="Self.overvallen" Schema="dbo" store:Type="Tables" />
@@ -56,18 +77,18 @@
             <PropertyRef Name="voorval_nr" />
           </Key>
           <Property Name="voorval_nr" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="datum" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="datum" Type="DateTime" Precision="0" />
           <Property Name="uur" Type="Int32" />
           <Property Name="dagsoort" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="dagdeel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="dagdeel_naam" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
-          <Property Name="plaats" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="dagdeel_naam" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="plaats" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="district" Type="Int32" />
-          <Property Name="district_naam" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="buurt" Type="Int32" />
+          <Property Name="district_naam" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="buurt" Type="Int32" Nullable="false" />
           <Property Name="subbuurt" Type="Int32" />
-          <Property Name="straat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="opgelost" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="straat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="opgelost" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="werkzoekende">
           <Key>
@@ -89,16 +110,30 @@
         <EntityContainer Name="StraatrovenEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="overvallen" EntityType="Self.overvallen" />
           <EntitySet Name="werkzoekende" EntityType="Self.werkzoekende" />
+          <FunctionImport Name="Procedure" ReturnType="Collection(StraatrovenModel.Procedure_Result)">
+            <Parameter Name="param1" Mode="In" Type="Int32" />
+            <Parameter Name="param2" Mode="In" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="wz15" ReturnType="Collection(StraatrovenModel.wz15_Result)" />
+          <FunctionImport Name="wz16" ReturnType="Collection(StraatrovenModel.wz16_Result)" />
           <FunctionImport Name="wz20" ReturnType="Collection(StraatrovenModel.wz20_Result)" />
         </EntityContainer>
+        <ComplexType Name="Procedure_Result">
+          <Property Type="Int32" Name="Column1" Nullable="true" />
+          <Property Type="Int32" Name="Column2" Nullable="true" />
+        </ComplexType>
         <ComplexType Name="wz15_Result">
           <Property Type="String" Name="bn" Nullable="false" MaxLength="20" />
           <Property Type="Int32" Name="wz" Nullable="false" />
         </ComplexType>
+        <ComplexType Name="wz16_Result">
+          <Property Type="String" Name="bn" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="wz" Nullable="false" />
+          <Property Type="Int32" Name="ov" Nullable="true" />
+        </ComplexType>
         <ComplexType Name="wz20_Result">
-          <Property Type="String" Name="buurt_naam" Nullable="false" MaxLength="20" />
-          <Property Type="Int32" Name="werkzoekende" Nullable="false" />
+          <Property Type="String" Name="bn" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="wz" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -142,6 +177,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Procedure" FunctionName="StraatrovenModel.Store.Procedure">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StraatrovenModel.Procedure_Result">
+                <ScalarProperty Name="Column1" ColumnName="Column1" />
+                <ScalarProperty Name="Column2" ColumnName="Column2" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="wz15" FunctionName="StraatrovenModel.Store.wz15">
             <ResultMapping>
               <ComplexTypeMapping TypeName="StraatrovenModel.wz15_Result">
@@ -150,11 +193,20 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="wz16" FunctionName="StraatrovenModel.Store.wz16">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StraatrovenModel.wz16_Result">
+                <ScalarProperty Name="bn" ColumnName="bn" />
+                <ScalarProperty Name="wz" ColumnName="wz" />
+                <ScalarProperty Name="ov" ColumnName="ov" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="wz20" FunctionName="StraatrovenModel.Store.wz20">
             <ResultMapping>
               <ComplexTypeMapping TypeName="StraatrovenModel.wz20_Result">
-                <ScalarProperty Name="buurt_naam" ColumnName="buurt_naam" />
-                <ScalarProperty Name="werkzoekende" ColumnName="werkzoekende" />
+                <ScalarProperty Name="bn" ColumnName="bn" />
+                <ScalarProperty Name="wz" ColumnName="wz" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

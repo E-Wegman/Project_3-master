@@ -11,9 +11,9 @@ namespace data
 {
     using System;
     
-    public partial class wz20_Result
+    public partial class Procedure_Result
     {
-        public string bn { get; set; }
-        public int wz { get; set; }
+        public Nullable<int> Column1 { get; set; }
+        public Nullable<int> Column2 { get; set; }
     }
 }

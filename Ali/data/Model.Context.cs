@@ -30,9 +30,27 @@ namespace data
         public virtual DbSet<overvallen> overvallen { get; set; }
         public virtual DbSet<werkzoekende> werkzoekende { get; set; }
     
+        public virtual ObjectResult<Procedure_Result> Procedure(Nullable<int> param1, Nullable<int> param2)
+        {
+            var param1Parameter = param1.HasValue ?
+                new ObjectParameter("param1", param1) :
+                new ObjectParameter("param1", typeof(int));
+    
+            var param2Parameter = param2.HasValue ?
+                new ObjectParameter("param2", param2) :
+                new ObjectParameter("param2", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Procedure_Result>("Procedure", param1Parameter, param2Parameter);
+        }
+    
         public virtual ObjectResult<wz15_Result> wz15()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<wz15_Result>("wz15");
+        }
+    
+        public virtual ObjectResult<wz16_Result> wz16()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<wz16_Result>("wz16");
         }
     
         public virtual ObjectResult<wz20_Result> wz20()
