@@ -27,21 +27,27 @@ namespace data
                 //var dataT = db.wz20();
                 var data = db.wz16();
 
-                ColumnSeries col = new ColumnSeries() { DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                ColumnSeries col = new ColumnSeries() { Title = "werkzoekende", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                ColumnSeries colO = new ColumnSeries() { Title = "test", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                ColumnSeries colT = new ColumnSeries() { Title = "overvallen", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
                 Axis ax = new Axis() { Separator = new Separator() { Step = 1, IsEnabled = false } };
                 ax.Labels = new List<string>();
-                foreach(var x in data)
+                ax.LabelsRotation = 45;
+                foreach (var x in data)
 
                 {
                     col.Values.Add(x.wz);
-                    col.Values.Add(x.ov);
+                    colO.Values.Add(x.ov);
+                    colT.Values.Add(x.ov);
                     ax.Labels.Add(x.bn);
-                    ax.Labels.Add(x.bn);
+                    //ax.Labels.Add(x.bn);
 
 
 
-                    }
+                }
                 cartesianChart1.Series.Add(col);
+                cartesianChart1.Series.Add(colO);
+                cartesianChart1.Series.Add(colT);
                 cartesianChart1.AxisX.Add(ax);
                 cartesianChart1.AxisY.Add(new Axis
                 {
