@@ -29,6 +29,12 @@ namespace data
     
         public virtual DbSet<overvallen> overvallen { get; set; }
         public virtual DbSet<werkzoekende> werkzoekende { get; set; }
+        public virtual DbSet<ov> ov { get; set; }
+    
+        public virtual ObjectResult<hspA_Result> hspA()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<hspA_Result>("hspA");
+        }
     
         public virtual ObjectResult<Procedure_Result> Procedure(Nullable<int> param1, Nullable<int> param2)
         {
@@ -43,19 +49,14 @@ namespace data
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Procedure_Result>("Procedure", param1Parameter, param2Parameter);
         }
     
-        public virtual ObjectResult<wz15_Result> wz15()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<wz15_Result>("wz15");
-        }
-    
         public virtual ObjectResult<wz16_Result> wz16()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<wz16_Result>("wz16");
         }
     
-        public virtual ObjectResult<wz20_Result> wz20()
+        public virtual ObjectResult<wzA_Result> wzA()
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<wz20_Result>("wz20");
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<wzA_Result>("wzA");
         }
     }
 }

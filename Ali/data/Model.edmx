@@ -5,19 +5,43 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="StraatrovenModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'straatroven.dbo.hsp' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="hsp">
+          <Property Name="buurt_code" Type="varchar" MaxLength="50" />
+          <Property Name="gem_nr" Type="varchar" MaxLength="50" />
+          <Property Name="gem_naam" Type="varchar" MaxLength="50" />
+          <Property Name="wijk_buurt" Type="varchar" MaxLength="50" />
+          <Property Name="wijk_code" Type="varchar" MaxLength="50" />
+          <Property Name="wijk_nr" Type="varchar" MaxLength="50" />
+          <Property Name="wijk_naam" Type="varchar" MaxLength="50" />
+          <Property Name="buurt_nr" Type="int" />
+          <Property Name="buurt_naam" Type="varchar" MaxLength="50" />
+          <Property Name="gem_huisprijs" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'straatroven.dbo.ov' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ov">
+          <Key>
+            <PropertyRef Name="buurt_nr" />
+          </Key>
+          <Property Name="buurt_nr" Type="int" Nullable="false" />
+          <Property Name="count_overvallen" Type="int" />
+          <Property Name="buurt_naam" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="overvallen">
           <Key>
             <PropertyRef Name="voorval_nr" />
           </Key>
-          <Property Name="voorval_nr" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="voorval_nr" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="datum" Type="date" />
           <Property Name="uur" Type="int" />
           <Property Name="dagsoort" Type="varchar" MaxLength="10" />
-          <Property Name="dagdeel" Type="varchar" MaxLength="20" />
-          <Property Name="dagdeel_naam" Type="varchar" MaxLength="20" />
-          <Property Name="plaats" Type="varchar" MaxLength="20" />
+          <Property Name="dagdeel" Type="varchar" MaxLength="50" />
+          <Property Name="dagdeel_naam" Type="varchar" MaxLength="50" />
+          <Property Name="plaats" Type="varchar" MaxLength="50" />
           <Property Name="district" Type="int" />
-          <Property Name="district_naam" Type="varchar" MaxLength="20" />
+          <Property Name="district_naam" Type="varchar" MaxLength="50" />
           <Property Name="buurt" Type="int" Nullable="false" />
           <Property Name="subbuurt" Type="int" />
           <Property Name="straat" Type="varchar" MaxLength="50" />
@@ -44,28 +68,54 @@ warning 6013: The table/view 'straatroven.dbo.weer' does not have a primary key 
             <PropertyRef Name="buurt_naam" />
             <PropertyRef Name="werkzoekende" />
           </Key>
-          <Property Name="buurt_code" Type="nchar" MaxLength="20" />
+          <Property Name="buurt_code" Type="varchar" MaxLength="20" />
           <Property Name="gem_nr" Type="int" />
           <Property Name="wijk_buurt" Type="int" />
-          <Property Name="wijk_code" Type="nchar" MaxLength="20" />
+          <Property Name="wijk_code" Type="varchar" MaxLength="20" />
           <Property Name="wijk_nr" Type="int" />
-          <Property Name="wijk_naam" Type="nchar" MaxLength="20" />
+          <Property Name="wijk_naam" Type="varchar" MaxLength="20" />
           <Property Name="buurt_nr" Type="int" Nullable="false" />
-          <Property Name="buurt_naam" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="buurt_naam" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="werkzoekende" Type="int" Nullable="false" />
           <Property Name="leeftijd" Type="int" Nullable="false" />
-          <Property Name="gem_naam" Type="nchar" MaxLength="10" />
+          <Property Name="gem_naam" Type="varchar" MaxLength="10" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'straatroven.dbo.wz' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="wz">
+          <Property Name="buurt_code" Type="varchar" MaxLength="20" />
+          <Property Name="gem_nr" Type="int" />
+          <Property Name="wijk_buurt" Type="int" />
+          <Property Name="wijk_code" Type="varchar" MaxLength="20" />
+          <Property Name="wijk_nr" Type="int" />
+          <Property Name="wijk_naam" Type="varchar" MaxLength="50" />
+          <Property Name="buurt_nr" Type="int" />
+          <Property Name="buurt_naam" Type="varchar" MaxLength="50" />
+          <Property Name="werkzoekende_A" Type="int" />
+          <Property Name="werkzoekende_15" Type="int" />
+          <Property Name="werkzoekende_25" Type="int" />
+          <Property Name="werkzoekende_35" Type="int" />
+          <Property Name="werkzoekende_45" Type="int" />
+          <Property Name="werkzoekende_55" Type="int" />
+          <Property Name="gem_naam" Type="varchar" MaxLength="10" />
+        </EntityType>-->
+        <Function Name="hspA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="Procedure" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="param1" Type="int" Mode="In" />
           <Parameter Name="param2" Type="int" Mode="In" />
         </Function>
-        <Function Name="wz15" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="wz16" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="wz20" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="wzA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="StraatrovenModelStoreContainer">
           <EntitySet Name="overvallen" EntityType="Self.overvallen" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="werkzoekende" EntityType="Self.werkzoekende" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ov" EntityType="Self.ov" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ov].[buurt_nr] AS [buurt_nr], 
+    [ov].[count_overvallen] AS [count_overvallen], 
+    [ov].[buurt_naam] AS [buurt_naam]
+    FROM [dbo].[ov] AS [ov]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -76,15 +126,15 @@ warning 6013: The table/view 'straatroven.dbo.weer' does not have a primary key 
           <Key>
             <PropertyRef Name="voorval_nr" />
           </Key>
-          <Property Name="voorval_nr" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="voorval_nr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="datum" Type="DateTime" Precision="0" />
           <Property Name="uur" Type="Int32" />
           <Property Name="dagsoort" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="dagdeel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="dagdeel_naam" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="plaats" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="dagdeel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dagdeel_naam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="plaats" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="district" Type="Int32" />
-          <Property Name="district_naam" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="district_naam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="buurt" Type="Int32" Nullable="false" />
           <Property Name="subbuurt" Type="Int32" />
           <Property Name="straat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -95,45 +145,61 @@ warning 6013: The table/view 'straatroven.dbo.weer' does not have a primary key 
             <PropertyRef Name="buurt_naam" />
             <PropertyRef Name="werkzoekende1" />
           </Key>
-          <Property Name="buurt_code" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="buurt_code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="gem_nr" Type="Int32" />
           <Property Name="wijk_buurt" Type="Int32" />
-          <Property Name="wijk_code" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="wijk_code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="wijk_nr" Type="Int32" />
-          <Property Name="wijk_naam" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="wijk_naam" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="buurt_nr" Type="Int32" Nullable="false" />
-          <Property Name="buurt_naam" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="buurt_naam" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="werkzoekende1" Type="Int32" Nullable="false" />
           <Property Name="leeftijd" Type="Int32" Nullable="false" />
-          <Property Name="gem_naam" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="gem_naam" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ov">
+          <Key>
+            <PropertyRef Name="buurt_nr" />
+          </Key>
+          <Property Name="buurt_nr" Type="Int32" Nullable="false" />
+          <Property Name="count_overvallen" Type="Int32" />
+          <Property Name="buurt_naam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityContainer Name="StraatrovenEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="overvallen" EntityType="Self.overvallen" />
           <EntitySet Name="werkzoekende" EntityType="Self.werkzoekende" />
+          <EntitySet Name="ov" EntityType="Self.ov" />
+          <FunctionImport Name="hspA" ReturnType="Collection(StraatrovenModel.hspA_Result)" />
           <FunctionImport Name="Procedure" ReturnType="Collection(StraatrovenModel.Procedure_Result)">
             <Parameter Name="param1" Mode="In" Type="Int32" />
             <Parameter Name="param2" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="wz15" ReturnType="Collection(StraatrovenModel.wz15_Result)" />
           <FunctionImport Name="wz16" ReturnType="Collection(StraatrovenModel.wz16_Result)" />
-          <FunctionImport Name="wz20" ReturnType="Collection(StraatrovenModel.wz20_Result)" />
+          <FunctionImport Name="wzA" ReturnType="Collection(StraatrovenModel.wzA_Result)" />
         </EntityContainer>
+        <ComplexType Name="hspA_Result">
+          <Property Type="Int32" Name="ov" Nullable="true" />
+          <Property Type="Int32" Name="hsp" Nullable="true" />
+          <Property Type="String" Name="bn" Nullable="false" MaxLength="51" />
+        </ComplexType>
         <ComplexType Name="Procedure_Result">
           <Property Type="Int32" Name="Column1" Nullable="true" />
           <Property Type="Int32" Name="Column2" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="wz15_Result">
-          <Property Type="String" Name="bn" Nullable="false" MaxLength="20" />
-          <Property Type="Int32" Name="wz" Nullable="false" />
         </ComplexType>
         <ComplexType Name="wz16_Result">
           <Property Type="String" Name="bn" Nullable="false" MaxLength="20" />
           <Property Type="Int32" Name="wz" Nullable="false" />
           <Property Type="Int32" Name="ov" Nullable="true" />
         </ComplexType>
-        <ComplexType Name="wz20_Result">
-          <Property Type="String" Name="bn" Nullable="false" MaxLength="20" />
-          <Property Type="Int32" Name="wz" Nullable="false" />
+        <ComplexType Name="wzA_Result">
+          <Property Type="String" Name="bn" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="wzA" Nullable="true" />
+          <Property Type="Int32" Name="wz15" Nullable="true" />
+          <Property Type="Int32" Name="wz25" Nullable="true" />
+          <Property Type="Int32" Name="wz35" Nullable="true" />
+          <Property Type="Int32" Name="wz45" Nullable="true" />
+          <Property Type="Int32" Name="wz55" Nullable="true" />
+          <Property Type="Int32" Name="ov" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -177,19 +243,29 @@ warning 6013: The table/view 'straatroven.dbo.weer' does not have a primary key 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="ov">
+            <EntityTypeMapping TypeName="StraatrovenModel.ov">
+              <MappingFragment StoreEntitySet="ov">
+                <ScalarProperty Name="buurt_nr" ColumnName="buurt_nr" />
+                <ScalarProperty Name="count_overvallen" ColumnName="count_overvallen" />
+                <ScalarProperty Name="buurt_naam" ColumnName="buurt_naam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="hspA" FunctionName="StraatrovenModel.Store.hspA">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StraatrovenModel.hspA_Result">
+                <ScalarProperty Name="ov" ColumnName="ov" />
+                <ScalarProperty Name="hsp" ColumnName="hsp" />
+                <ScalarProperty Name="bn" ColumnName="bn" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="Procedure" FunctionName="StraatrovenModel.Store.Procedure">
             <ResultMapping>
               <ComplexTypeMapping TypeName="StraatrovenModel.Procedure_Result">
                 <ScalarProperty Name="Column1" ColumnName="Column1" />
                 <ScalarProperty Name="Column2" ColumnName="Column2" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="wz15" FunctionName="StraatrovenModel.Store.wz15">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="StraatrovenModel.wz15_Result">
-                <ScalarProperty Name="bn" ColumnName="bn" />
-                <ScalarProperty Name="wz" ColumnName="wz" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -202,11 +278,17 @@ warning 6013: The table/view 'straatroven.dbo.weer' does not have a primary key 
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="wz20" FunctionName="StraatrovenModel.Store.wz20">
+          <FunctionImportMapping FunctionImportName="wzA" FunctionName="StraatrovenModel.Store.wzA">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="StraatrovenModel.wz20_Result">
+              <ComplexTypeMapping TypeName="StraatrovenModel.wzA_Result">
                 <ScalarProperty Name="bn" ColumnName="bn" />
-                <ScalarProperty Name="wz" ColumnName="wz" />
+                <ScalarProperty Name="wzA" ColumnName="wzA" />
+                <ScalarProperty Name="wz15" ColumnName="wz15" />
+                <ScalarProperty Name="wz25" ColumnName="wz25" />
+                <ScalarProperty Name="wz35" ColumnName="wz35" />
+                <ScalarProperty Name="wz45" ColumnName="wz45" />
+                <ScalarProperty Name="wz55" ColumnName="wz55" />
+                <ScalarProperty Name="ov" ColumnName="ov" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

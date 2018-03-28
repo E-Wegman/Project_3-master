@@ -8,7 +8,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
+
 
 namespace data
 {
@@ -17,37 +19,65 @@ namespace data
         public Form1()
         {
             InitializeComponent();
+            this.Text = "Werkzoekende";
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             using (StraatrovenEntities db = new StraatrovenEntities())
             {
-                //var data = db.wz15();
-                //var dataT = db.wz20();
-                var data = db.wz16();
+                var data = db.wzA();
 
-                ColumnSeries col = new ColumnSeries() { Title = "werkzoekende", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
-                ColumnSeries colO = new ColumnSeries() { Title = "test", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
-                ColumnSeries colT = new ColumnSeries() { Title = "overvallen", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                Col = new ColumnSeries() { Title = "Werkzoekende totaal", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                ColO = new ColumnSeries() { Title = "Werkzoekende 15 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                ColT = new ColumnSeries() { Title = "Werkzoekende 25 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                ColTr = new ColumnSeries() { Title = "Werkzoekende 35 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                ColF = new ColumnSeries() { Title = "Werkzoekende 45 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                ColFi = new ColumnSeries() { Title = "Werkzoekende 55 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                ColS = new ColumnSeries() { Title = "Overvallen", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+
                 Axis ax = new Axis() { Separator = new Separator() { Step = 1, IsEnabled = false } };
                 ax.Labels = new List<string>();
                 ax.LabelsRotation = 45;
                 foreach (var x in data)
 
                 {
-                    col.Values.Add(x.wz);
-                    colO.Values.Add(x.ov);
-                    colT.Values.Add(x.ov);
+                    Col.Values.Add(x.wzA);
+                    ColO.Values.Add(x.wz15);
+                    ColT.Values.Add(x.wz25);
+                    ColTr.Values.Add(x.wz35);
+                    ColF.Values.Add(x.wz45);
+                    ColFi.Values.Add(x.wz55);
+                    ColS.Values.Add(x.ov);
                     ax.Labels.Add(x.bn);
                     //ax.Labels.Add(x.bn);
 
 
 
                 }
-                cartesianChart1.Series.Add(col);
-                cartesianChart1.Series.Add(colO);
-                cartesianChart1.Series.Add(colT);
+
+                cartesianChart1.Series.Add(Col);
+                cartesianChart1.Series.Add(ColO);
+                cartesianChart1.Series.Add(ColT);
+                cartesianChart1.Series.Add(ColTr);
+                cartesianChart1.Series.Add(ColF);
+                cartesianChart1.Series.Add(ColFi);
+                cartesianChart1.Series.Add(ColS);
+
+
+                //cartesianChart1.Series = new SeriesCollection
+                //{
+                //    Col,
+                //    ColO,
+                //    ColT,
+                //    ColTr,
+                //    ColF,
+                //    ColFi,
+                //    ColS,
+
+                //};
+
+
                 cartesianChart1.AxisX.Add(ax);
                 cartesianChart1.AxisY.Add(new Axis
                 {
@@ -61,5 +91,143 @@ namespace data
         {
 
         }
+
+        public ColumnSeries Col { get; set; }
+        public ColumnSeries ColO { get; set; }
+        public ColumnSeries ColT { get; set; }
+        public ColumnSeries ColTr { get; set; }
+        public ColumnSeries ColF { get; set; }
+        public ColumnSeries ColFi { get; set; }
+        public ColumnSeries ColS { get; set; }
+
+
+
+        private void checkWzT_CheckedChanged(object sender, EventArgs e)
+        {
+            Col.Visibility = Col.Visibility == Visibility.Visible
+                ? Visibility.Hidden
+                : Visibility.Visible;
+        }
+
+        //private void button2_Click(object sender, EventArgs e)
+        //{
+
+        //}
+
+        private void checkWz15_CheckedChanged(object sender, EventArgs e)
+        {
+            ColO.Visibility = ColO.Visibility == Visibility.Visible
+                ? Visibility.Hidden
+                : Visibility.Visible;
+        }
+
+        private void checkWz20_CheckedChanged(object sender, EventArgs e)
+        {
+            ColT.Visibility = ColT.Visibility == Visibility.Visible
+                ? Visibility.Hidden
+                : Visibility.Visible;
+        }
+
+        private void checkWz25_CheckedChanged(object sender, EventArgs e)
+        {
+            ColTr.Visibility = ColTr.Visibility == Visibility.Visible
+                ? Visibility.Hidden
+                : Visibility.Visible;
+        }
+
+        private void checkWz30_CheckedChanged(object sender, EventArgs e)
+        {
+            ColF.Visibility = ColF.Visibility == Visibility.Visible
+                ? Visibility.Hidden
+                : Visibility.Visible;
+        }
+
+        private void checkWz35_CheckedChanged(object sender, EventArgs e)
+        {
+            ColFi.Visibility = ColFi.Visibility == Visibility.Visible
+                ? Visibility.Hidden
+                : Visibility.Visible;
+        }
+
+
+
+        private void btn1_Click(object sender, EventArgs e)
+        {
+            cartesianChart1.AxisX[0].MinValue = 0;
+            cartesianChart1.AxisX[0].MaxValue = 11;
+        }
+
+        private void btn2_Click(object sender, EventArgs e)
+        {
+            cartesianChart1.AxisX[0].MinValue = 11;
+            cartesianChart1.AxisX[0].MaxValue = 23;
+        }
+
+        private void btn3_Click(object sender, EventArgs e)
+        {
+            cartesianChart1.AxisX[0].MinValue = 23;
+            cartesianChart1.AxisX[0].MaxValue = 35;
+        }
+
+        private void btn4_Click(object sender, EventArgs e)
+        {
+            cartesianChart1.AxisX[0].MinValue = 35;
+            cartesianChart1.AxisX[0].MaxValue = 47;
+        }
+
+        private void btn5_Click(object sender, EventArgs e)
+        {
+            cartesianChart1.AxisX[0].MinValue = 47;
+            cartesianChart1.AxisX[0].MaxValue = 59;
+        }
+
+        private void btn6_Click(object sender, EventArgs e)
+        {
+            cartesianChart1.AxisX[0].MinValue = 59;
+            cartesianChart1.AxisX[0].MaxValue = 71;
+        }
+
+        private void btn7_Click(object sender, EventArgs e)
+        {
+            cartesianChart1.AxisX[0].MinValue = 71;
+            cartesianChart1.AxisX[0].MaxValue = 83;
+        }
+
+        private void btn8_Click(object sender, EventArgs e)
+        {
+            cartesianChart1.AxisX[0].MinValue = 83;
+            cartesianChart1.AxisX[0].MaxValue = 92;
+        }
+
+        private void btnZoom_Click(object sender, EventArgs e)
+        {
+            cartesianChart1.AxisX[0].MinValue = 0;
+            cartesianChart1.AxisX[0].MaxValue = 92;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            (new Form2()).Show(); this.Hide();
+        }
+
+        private void btnZoom_Click_1(object sender, EventArgs e)
+        {
+            cartesianChart1.AxisX[0].MinValue = 0;
+            cartesianChart1.AxisX[0].MaxValue = 92;
+        }
+
+
+        //private void btnZoom_MouseHover(object sender, EventArgs e)
+        //{
+        //    Color ActiveBorder = default(Color);
+        //    btnZoom.ForeColor = ActiveBorder;
+        //}
+
+        //------------------------------------------------------------------------------------------------------------------------------------------------//
+
+        // public LineSeries CharlesSeries { get; set; }
+        // public LineSeries JohnSeries { get; set; }
+
+
     }
 }
