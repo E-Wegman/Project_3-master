@@ -28,13 +28,14 @@ namespace data
             {
                 var data = db.wzA();
 
-                Col = new ColumnSeries() { Title = "Werkzoekende totaal", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                Col = new ColumnSeries() { Title = "Werkzoekende totaal", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString()};
                 ColO = new ColumnSeries() { Title = "Werkzoekende 15 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
                 ColT = new ColumnSeries() { Title = "Werkzoekende 25 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
                 ColTr = new ColumnSeries() { Title = "Werkzoekende 35 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
                 ColF = new ColumnSeries() { Title = "Werkzoekende 45 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
                 ColFi = new ColumnSeries() { Title = "Werkzoekende 55 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
                 ColS = new ColumnSeries() { Title = "Overvallen", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+
 
                 Axis ax = new Axis() { Separator = new Separator() { Step = 1, IsEnabled = false } };
                 ax.Labels = new List<string>();
@@ -214,6 +215,11 @@ namespace data
         {
             cartesianChart1.AxisX[0].MinValue = 0;
             cartesianChart1.AxisX[0].MaxValue = 92;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            (new Form4()).Show(); this.Hide();
         }
 
 

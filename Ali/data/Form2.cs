@@ -127,5 +127,10 @@ namespace data
             cartesianChart1.AxisX[0].MinValue = 60;
             cartesianChart1.AxisX[0].MaxValue = 67;
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            (new Form4()).Show(); this.Hide();
+        }
     }
 }

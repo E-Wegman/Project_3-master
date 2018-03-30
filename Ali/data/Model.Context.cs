@@ -30,6 +30,7 @@ namespace data
         public virtual DbSet<overvallen> overvallen { get; set; }
         public virtual DbSet<werkzoekende> werkzoekende { get; set; }
         public virtual DbSet<ov> ov { get; set; }
+        public virtual DbSet<Weer> Weer { get; set; }
     
         public virtual ObjectResult<hspA_Result> hspA()
         {
@@ -47,6 +48,16 @@ namespace data
                 new ObjectParameter("param2", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Procedure_Result>("Procedure", param1Parameter, param2Parameter);
+        }
+    
+        public virtual ObjectResult<wr_Result> wr()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<wr_Result>("wr");
+        }
+    
+        public virtual ObjectResult<wrO_Result> wrO()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<wrO_Result>("wrO");
         }
     
         public virtual ObjectResult<wz16_Result> wz16()

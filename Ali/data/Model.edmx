@@ -48,21 +48,35 @@ warning 6002: The table/view 'straatroven.dbo.ov' does not have a primary key de
           <Property Name="opgelost" Type="varchar" MaxLength="10" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'straatroven.dbo.weer' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="weer">
-          <Property Name="datum" Type="date" />
-          <Property Name="uur" Type="int" />
-          <Property Name="gem_windsnelheid" Type="int" />
-          <Property Name="temp" Type="int" />
-          <Property Name="zon" Type="int" />
-          <Property Name="zicht" Type="int" />
-          <Property Name="bewolking" Type="int" />
-          <Property Name="mist" Type="bit" />
-          <Property Name="regen" Type="bit" />
-          <Property Name="sneeuw" Type="bit" />
-          <Property Name="onweer" Type="bit" />
-          <Property Name="ijsvorming" Type="bit" />
-        </EntityType>-->
+warning 6002: The table/view 'straatroven.dbo.Weer' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Weer">
+          <Key>
+            <PropertyRef Name="datum" />
+            <PropertyRef Name="uur" />
+            <PropertyRef Name="gem_windsnelheid" />
+            <PropertyRef Name="temp" />
+            <PropertyRef Name="zon" />
+            <PropertyRef Name="zicht" />
+            <PropertyRef Name="bewolking" />
+            <PropertyRef Name="mist" />
+            <PropertyRef Name="regen" />
+            <PropertyRef Name="sneeuw" />
+            <PropertyRef Name="onweer" />
+            <PropertyRef Name="ijsvorming" />
+          </Key>
+          <Property Name="datum" Type="date" Nullable="false" />
+          <Property Name="uur" Type="int" Nullable="false" />
+          <Property Name="gem_windsnelheid" Type="int" Nullable="false" />
+          <Property Name="temp" Type="int" Nullable="false" />
+          <Property Name="zon" Type="int" Nullable="false" />
+          <Property Name="zicht" Type="int" Nullable="false" />
+          <Property Name="bewolking" Type="int" Nullable="false" />
+          <Property Name="mist" Type="bit" Nullable="false" />
+          <Property Name="regen" Type="bit" Nullable="false" />
+          <Property Name="sneeuw" Type="bit" Nullable="false" />
+          <Property Name="onweer" Type="bit" Nullable="false" />
+          <Property Name="ijsvorming" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="werkzoekende">
           <Key>
             <PropertyRef Name="buurt_naam" />
@@ -104,6 +118,8 @@ warning 6013: The table/view 'straatroven.dbo.wz' does not have a primary key de
           <Parameter Name="param1" Type="int" Mode="In" />
           <Parameter Name="param2" Type="int" Mode="In" />
         </Function>
+        <Function Name="wr" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="wrO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="wz16" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="wzA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="StraatrovenModelStoreContainer">
@@ -115,6 +131,22 @@ warning 6013: The table/view 'straatroven.dbo.wz' does not have a primary key de
     [ov].[count_overvallen] AS [count_overvallen], 
     [ov].[buurt_naam] AS [buurt_naam]
     FROM [dbo].[ov] AS [ov]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Weer" EntityType="Self.Weer" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Weer].[datum] AS [datum], 
+    [Weer].[uur] AS [uur], 
+    [Weer].[gem_windsnelheid] AS [gem_windsnelheid], 
+    [Weer].[temp] AS [temp], 
+    [Weer].[zon] AS [zon], 
+    [Weer].[zicht] AS [zicht], 
+    [Weer].[bewolking] AS [bewolking], 
+    [Weer].[mist] AS [mist], 
+    [Weer].[regen] AS [regen], 
+    [Weer].[sneeuw] AS [sneeuw], 
+    [Weer].[onweer] AS [onweer], 
+    [Weer].[ijsvorming] AS [ijsvorming]
+    FROM [dbo].[Weer] AS [Weer]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
       </Schema>
@@ -165,15 +197,46 @@ warning 6013: The table/view 'straatroven.dbo.wz' does not have a primary key de
           <Property Name="count_overvallen" Type="Int32" />
           <Property Name="buurt_naam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="Weer">
+          <Key>
+            <PropertyRef Name="datum" />
+            <PropertyRef Name="uur" />
+            <PropertyRef Name="gem_windsnelheid" />
+            <PropertyRef Name="temp" />
+            <PropertyRef Name="zon" />
+            <PropertyRef Name="zicht" />
+            <PropertyRef Name="bewolking" />
+            <PropertyRef Name="mist" />
+            <PropertyRef Name="regen" />
+            <PropertyRef Name="sneeuw" />
+            <PropertyRef Name="onweer" />
+            <PropertyRef Name="ijsvorming" />
+          </Key>
+          <Property Name="datum" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="uur" Type="Int32" Nullable="false" />
+          <Property Name="gem_windsnelheid" Type="Int32" Nullable="false" />
+          <Property Name="temp" Type="Int32" Nullable="false" />
+          <Property Name="zon" Type="Int32" Nullable="false" />
+          <Property Name="zicht" Type="Int32" Nullable="false" />
+          <Property Name="bewolking" Type="Int32" Nullable="false" />
+          <Property Name="mist" Type="Boolean" Nullable="false" />
+          <Property Name="regen" Type="Boolean" Nullable="false" />
+          <Property Name="sneeuw" Type="Boolean" Nullable="false" />
+          <Property Name="onweer" Type="Boolean" Nullable="false" />
+          <Property Name="ijsvorming" Type="Boolean" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="StraatrovenEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="overvallen" EntityType="Self.overvallen" />
           <EntitySet Name="werkzoekende" EntityType="Self.werkzoekende" />
           <EntitySet Name="ov" EntityType="Self.ov" />
+          <EntitySet Name="Weer" EntityType="Self.Weer" />
           <FunctionImport Name="hspA" ReturnType="Collection(StraatrovenModel.hspA_Result)" />
           <FunctionImport Name="Procedure" ReturnType="Collection(StraatrovenModel.Procedure_Result)">
             <Parameter Name="param1" Mode="In" Type="Int32" />
             <Parameter Name="param2" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="wr" ReturnType="Collection(StraatrovenModel.wr_Result)" />
+          <FunctionImport Name="wrO" ReturnType="Collection(StraatrovenModel.wrO_Result)" />
           <FunctionImport Name="wz16" ReturnType="Collection(StraatrovenModel.wz16_Result)" />
           <FunctionImport Name="wzA" ReturnType="Collection(StraatrovenModel.wzA_Result)" />
         </EntityContainer>
@@ -185,6 +248,16 @@ warning 6013: The table/view 'straatroven.dbo.wz' does not have a primary key de
         <ComplexType Name="Procedure_Result">
           <Property Type="Int32" Name="Column1" Nullable="true" />
           <Property Type="Int32" Name="Column2" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="wr_Result">
+          <Property Type="String" Name="mnd" Nullable="false" MaxLength="25" />
+          <Property Type="Int32" Name="ov" Nullable="true" />
+          <Property Type="Int32" Name="tmp" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="wrO_Result">
+          <Property Type="DateTime" Name="mnd" Nullable="true" />
+          <Property Type="Int32" Name="ov" Nullable="true" />
+          <Property Type="Int32" Name="tmp" Nullable="true" />
         </ComplexType>
         <ComplexType Name="wz16_Result">
           <Property Type="String" Name="bn" Nullable="false" MaxLength="20" />
@@ -252,6 +325,24 @@ warning 6013: The table/view 'straatroven.dbo.wz' does not have a primary key de
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Weer">
+            <EntityTypeMapping TypeName="StraatrovenModel.Weer">
+              <MappingFragment StoreEntitySet="Weer">
+                <ScalarProperty Name="datum" ColumnName="datum" />
+                <ScalarProperty Name="uur" ColumnName="uur" />
+                <ScalarProperty Name="gem_windsnelheid" ColumnName="gem_windsnelheid" />
+                <ScalarProperty Name="temp" ColumnName="temp" />
+                <ScalarProperty Name="zon" ColumnName="zon" />
+                <ScalarProperty Name="zicht" ColumnName="zicht" />
+                <ScalarProperty Name="bewolking" ColumnName="bewolking" />
+                <ScalarProperty Name="mist" ColumnName="mist" />
+                <ScalarProperty Name="regen" ColumnName="regen" />
+                <ScalarProperty Name="sneeuw" ColumnName="sneeuw" />
+                <ScalarProperty Name="onweer" ColumnName="onweer" />
+                <ScalarProperty Name="ijsvorming" ColumnName="ijsvorming" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="hspA" FunctionName="StraatrovenModel.Store.hspA">
             <ResultMapping>
               <ComplexTypeMapping TypeName="StraatrovenModel.hspA_Result">
@@ -266,6 +357,24 @@ warning 6013: The table/view 'straatroven.dbo.wz' does not have a primary key de
               <ComplexTypeMapping TypeName="StraatrovenModel.Procedure_Result">
                 <ScalarProperty Name="Column1" ColumnName="Column1" />
                 <ScalarProperty Name="Column2" ColumnName="Column2" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="wr" FunctionName="StraatrovenModel.Store.wr">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StraatrovenModel.wr_Result">
+                <ScalarProperty Name="mnd" ColumnName="mnd" />
+                <ScalarProperty Name="ov" ColumnName="ov" />
+                <ScalarProperty Name="tmp" ColumnName="tmp" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="wrO" FunctionName="StraatrovenModel.Store.wrO">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StraatrovenModel.wrO_Result">
+                <ScalarProperty Name="mnd" ColumnName="mnd" />
+                <ScalarProperty Name="ov" ColumnName="ov" />
+                <ScalarProperty Name="tmp" ColumnName="tmp" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

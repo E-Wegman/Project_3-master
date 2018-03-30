@@ -11,9 +11,10 @@ namespace data
 {
     using System;
     
-    public partial class wz15_Result
+    public partial class wr_Result
     {
-        public string bn { get; set; }
-        public int wz { get; set; }
+        public string mnd { get; set; }
+        public Nullable<int> ov { get; set; }
+        public Nullable<int> tmp { get; set; }
     }
 }
