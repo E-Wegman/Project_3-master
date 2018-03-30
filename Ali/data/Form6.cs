@@ -11,30 +11,29 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
 
-
 namespace data
 {
-    public partial class Form1 : Form
+    public partial class Form6 : Form
     {
-        public Form1()
+        public Form6()
         {
             InitializeComponent();
             this.Text = "Werkzoekende";
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form6_Load(object sender, EventArgs e)
         {
             using (StraatrovenEntities db = new StraatrovenEntities())
             {
                 var data = db.wzA();
 
-                Col = new ColumnSeries() { Title = "Werkzoekende totaal", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString()};
-                ColO = new ColumnSeries() { Title = "Werkzoekende 15 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
-                ColT = new ColumnSeries() { Title = "Werkzoekende 25 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
-                ColTr = new ColumnSeries() { Title = "Werkzoekende 35 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
-                ColF = new ColumnSeries() { Title = "Werkzoekende 45 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
-                ColFi = new ColumnSeries() { Title = "Werkzoekende 55 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
-                ColS = new ColumnSeries() { Title = "Overvallen", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                Col = new LineSeries() { Title = "Werkzoekende totaal", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                ColO = new LineSeries() { Title = "Werkzoekende 15 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                ColT = new LineSeries() { Title = "Werkzoekende 25 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                ColTr = new LineSeries() { Title = "Werkzoekende 35 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                ColF = new LineSeries() { Title = "Werkzoekende 45 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                ColFi = new LineSeries() { Title = "Werkzoekende 55 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                ColS = new LineSeries() { Title = "Overvallen", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
 
 
                 Axis ax = new Axis() { Separator = new Separator() { Step = 1, IsEnabled = false } };
@@ -83,25 +82,17 @@ namespace data
                 cartesianChart1.AxisY.Add(new Axis
                 {
                     LabelFormatter = value => value.ToString(),
-                    Separator = new Separator() 
+                    Separator = new Separator()
                 });
             }
         }
-
-        private void cartesianChart1_ChildChanged(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
-        {
-
-        }
-
-        public ColumnSeries Col { get; set; }
-        public ColumnSeries ColO { get; set; }
-        public ColumnSeries ColT { get; set; }
-        public ColumnSeries ColTr { get; set; }
-        public ColumnSeries ColF { get; set; }
-        public ColumnSeries ColFi { get; set; }
-        public ColumnSeries ColS { get; set; }
-
-
+        public LineSeries Col { get; set; }
+        public LineSeries ColO { get; set; }
+        public LineSeries ColT { get; set; }
+        public LineSeries ColTr { get; set; }
+        public LineSeries ColF { get; set; }
+        public LineSeries ColFi { get; set; }
+        public LineSeries ColS { get; set; }
 
         private void checkWzT_CheckedChanged(object sender, EventArgs e)
         {
@@ -109,11 +100,6 @@ namespace data
                 ? Visibility.Hidden
                 : Visibility.Visible;
         }
-
-        //private void button2_Click(object sender, EventArgs e)
-        //{
-
-        //}
 
         private void checkWz15_CheckedChanged(object sender, EventArgs e)
         {
@@ -149,8 +135,6 @@ namespace data
                 ? Visibility.Hidden
                 : Visibility.Visible;
         }
-
-
 
         private void btn1_Click(object sender, EventArgs e)
         {
@@ -211,10 +195,9 @@ namespace data
             (new Form2()).Show(); this.Hide();
         }
 
-        private void btnZoom_Click_1(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            cartesianChart1.AxisX[0].MinValue = 0;
-            cartesianChart1.AxisX[0].MaxValue = 92;
+
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -222,23 +205,9 @@ namespace data
             (new Form4()).Show(); this.Hide();
         }
 
-        private void btnGraphiek_Click(object sender, EventArgs e)
+        private void btnDiagram_Click(object sender, EventArgs e)
         {
-            (new Form6()).Show(); this.Hide();
+            (new Form3()).Show(); this.Hide();
         }
-
-
-        //private void btnZoom_MouseHover(object sender, EventArgs e)
-        //{
-        //    Color ActiveBorder = default(Color);
-        //    btnZoom.ForeColor = ActiveBorder;
-        //}
-
-        //------------------------------------------------------------------------------------------------------------------------------------------------//
-
-        // public LineSeries CharlesSeries { get; set; }
-        // public LineSeries JohnSeries { get; set; }
-
-
     }
 }

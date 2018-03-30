@@ -12,22 +12,22 @@ using System.Windows.Forms;
 
 namespace data
 {
-    public partial class Form2 : Form
+    public partial class Form7 : Form
     {
-        public Form2()
+        public Form7()
         {
             InitializeComponent();
             this.Text = "Huisprijzen";
         }
 
-        private void Form2_Load(object sender, EventArgs e)
+        private void Form7_Load(object sender, EventArgs e)
         {
             using (StraatrovenEntities db = new StraatrovenEntities())
             {
                 var data = db.hspA();
 
-                Hcol = new ColumnSeries() { Title = "Overvallen", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
-                HcolO = new ColumnSeries() { Title = "Prijzen in euro(x1000)", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                Hcol = new LineSeries() { Title = "Overvallen", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                HcolO = new LineSeries() { Title = "Prijzen in euro(x1000)", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
 
                 Axis ax = new Axis() { Separator = new Separator() { Step = 1, IsEnabled = false } };
                 ax.Labels = new List<string>();
@@ -65,9 +65,8 @@ namespace data
                 });
             }
         }
-
-            public ColumnSeries Hcol { get; set; }
-            public ColumnSeries HcolO { get; set; }
+        public LineSeries Hcol { get; set; }
+        public LineSeries HcolO { get; set; }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -79,8 +78,12 @@ namespace data
             (new Form1()).Show(); this.Close();
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            (new Form4()).Show(); this.Close();
+        }
 
-        private void btn1_Click_1(object sender, EventArgs e)
+        private void btn1_Click(object sender, EventArgs e)
         {
             cartesianChart1.AxisX[0].MinValue = 0;
             cartesianChart1.AxisX[0].MaxValue = 10;
@@ -92,50 +95,45 @@ namespace data
             cartesianChart1.AxisX[0].MaxValue = 67;
         }
 
-        private void btn2_Click_1(object sender, EventArgs e)
+        private void btn2_Click(object sender, EventArgs e)
         {
             cartesianChart1.AxisX[0].MinValue = 10;
             cartesianChart1.AxisX[0].MaxValue = 20;
         }
 
-        private void btn3_Click_1(object sender, EventArgs e)
+        private void btn3_Click(object sender, EventArgs e)
         {
             cartesianChart1.AxisX[0].MinValue = 20;
             cartesianChart1.AxisX[0].MaxValue = 30;
         }
 
-        private void btn4_Click_1(object sender, EventArgs e)
+        private void btn4_Click(object sender, EventArgs e)
         {
             cartesianChart1.AxisX[0].MinValue = 30;
             cartesianChart1.AxisX[0].MaxValue = 40;
         }
 
-        private void btn5_Click_1(object sender, EventArgs e)
+        private void btn5_Click(object sender, EventArgs e)
         {
             cartesianChart1.AxisX[0].MinValue = 40;
             cartesianChart1.AxisX[0].MaxValue = 50;
         }
 
-        private void btn6_Click_1(object sender, EventArgs e)
+        private void btn6_Click(object sender, EventArgs e)
         {
             cartesianChart1.AxisX[0].MinValue = 50;
             cartesianChart1.AxisX[0].MaxValue = 60;
         }
 
-        private void btn7_Click_1(object sender, EventArgs e)
+        private void btn7_Click(object sender, EventArgs e)
         {
             cartesianChart1.AxisX[0].MinValue = 60;
             cartesianChart1.AxisX[0].MaxValue = 67;
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            (new Form4()).Show(); this.Hide();
-        }
-
         private void btnGraphiek_Click(object sender, EventArgs e)
         {
-            (new Form7()).Show(); this.Hide();
+            (new Form2()).Show(); this.Hide();
         }
     }
 }

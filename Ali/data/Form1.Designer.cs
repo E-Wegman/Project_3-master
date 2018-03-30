@@ -48,6 +48,7 @@
             this.btn7 = new System.Windows.Forms.Button();
             this.btn6 = new System.Windows.Forms.Button();
             this.btnZoom = new System.Windows.Forms.Button();
+            this.btnGraphiek = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cartesianChart1
@@ -253,11 +254,22 @@
             this.btnZoom.UseVisualStyleBackColor = true;
             this.btnZoom.Click += new System.EventHandler(this.btnZoom_Click_1);
             // 
+            // btnGraphiek
+            // 
+            this.btnGraphiek.Location = new System.Drawing.Point(129, 191);
+            this.btnGraphiek.Name = "btnGraphiek";
+            this.btnGraphiek.Size = new System.Drawing.Size(111, 23);
+            this.btnGraphiek.TabIndex = 27;
+            this.btnGraphiek.Text = "Graphiek";
+            this.btnGraphiek.UseVisualStyleBackColor = true;
+            this.btnGraphiek.Click += new System.EventHandler(this.btnGraphiek_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1782, 753);
+            this.Controls.Add(this.btnGraphiek);
             this.Controls.Add(this.btnZoom);
             this.Controls.Add(this.btn8);
             this.Controls.Add(this.btn7);
@@ -308,6 +320,7 @@
         private System.Windows.Forms.Button btn7;
         private System.Windows.Forms.Button btn6;
         private System.Windows.Forms.Button btnZoom;
+        private System.Windows.Forms.Button btnGraphiek;
     }
 }
 
