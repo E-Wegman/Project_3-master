@@ -47,6 +47,7 @@ namespace data
 
                 cartesianChart1.Series.Add(col);
                 cartesianChart1.Series.Add(colO);
+                cartesianChart1.LegendLocation = LegendLocation.Bottom;
                 cartesianChart1.AxisX.Add(ax);
                 cartesianChart1.AxisY.Add(new Axis
                 {
@@ -71,6 +72,26 @@ namespace data
         private void button4_Click(object sender, EventArgs e)
         {
             (new Form3()).Show(); this.Close();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            (new Form9()).Show(); this.Close();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            (new Form8()).Show(); this.Close();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            (new Form10()).Show(); this.Close();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            (new Form11()).Show(); this.Close();
         }
     }
 }

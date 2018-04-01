@@ -64,7 +64,7 @@ namespace data
                 cartesianChart1.Series.Add(ColF);
                 cartesianChart1.Series.Add(ColFi);
                 cartesianChart1.Series.Add(ColS);
-
+                cartesianChart1.LegendLocation = LegendLocation.Bottom;
 
                 //cartesianChart1.Series = new SeriesCollection
                 //{
@@ -225,6 +225,16 @@ namespace data
         private void btnGraphiek_Click(object sender, EventArgs e)
         {
             (new Form6()).Show(); this.Hide();
+        }
+
+        private void button1_MouseHover(object sender, EventArgs e)
+        {
+            Console.WriteLine("Navigeer naar huizenprijzen deelvraag");
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            (new Form5()).Show(); this.Hide();
         }
 
 

@@ -41,11 +41,14 @@
             this.button1 = new System.Windows.Forms.Button();
             this.cartesianChart1 = new LiveCharts.WinForms.CartesianChart();
             this.btnGraphiek = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnZoom
             // 
-            this.btnZoom.Location = new System.Drawing.Point(12, 181);
+            this.btnZoom.Location = new System.Drawing.Point(12, 146);
             this.btnZoom.Name = "btnZoom";
             this.btnZoom.Size = new System.Drawing.Size(110, 23);
             this.btnZoom.TabIndex = 39;
@@ -55,7 +58,7 @@
             // 
             // btn7
             // 
-            this.btn7.Location = new System.Drawing.Point(245, 210);
+            this.btn7.Location = new System.Drawing.Point(245, 175);
             this.btn7.Name = "btn7";
             this.btn7.Size = new System.Drawing.Size(33, 23);
             this.btn7.TabIndex = 37;
@@ -65,7 +68,7 @@
             // 
             // btn6
             // 
-            this.btn6.Location = new System.Drawing.Point(206, 210);
+            this.btn6.Location = new System.Drawing.Point(206, 175);
             this.btn6.Name = "btn6";
             this.btn6.Size = new System.Drawing.Size(33, 23);
             this.btn6.TabIndex = 36;
@@ -75,7 +78,7 @@
             // 
             // btn5
             // 
-            this.btn5.Location = new System.Drawing.Point(167, 210);
+            this.btn5.Location = new System.Drawing.Point(167, 175);
             this.btn5.Name = "btn5";
             this.btn5.Size = new System.Drawing.Size(33, 23);
             this.btn5.TabIndex = 35;
@@ -85,7 +88,7 @@
             // 
             // btn4
             // 
-            this.btn4.Location = new System.Drawing.Point(128, 210);
+            this.btn4.Location = new System.Drawing.Point(128, 175);
             this.btn4.Name = "btn4";
             this.btn4.Size = new System.Drawing.Size(33, 23);
             this.btn4.TabIndex = 34;
@@ -95,7 +98,7 @@
             // 
             // btn3
             // 
-            this.btn3.Location = new System.Drawing.Point(89, 210);
+            this.btn3.Location = new System.Drawing.Point(89, 175);
             this.btn3.Name = "btn3";
             this.btn3.Size = new System.Drawing.Size(33, 23);
             this.btn3.TabIndex = 33;
@@ -105,7 +108,7 @@
             // 
             // btn2
             // 
-            this.btn2.Location = new System.Drawing.Point(50, 210);
+            this.btn2.Location = new System.Drawing.Point(50, 175);
             this.btn2.Name = "btn2";
             this.btn2.Size = new System.Drawing.Size(33, 23);
             this.btn2.TabIndex = 32;
@@ -115,7 +118,7 @@
             // 
             // btn1
             // 
-            this.btn1.Location = new System.Drawing.Point(11, 210);
+            this.btn1.Location = new System.Drawing.Point(11, 175);
             this.btn1.Name = "btn1";
             this.btn1.Size = new System.Drawing.Size(33, 23);
             this.btn1.TabIndex = 31;
@@ -155,15 +158,15 @@
             // 
             // cartesianChart1
             // 
-            this.cartesianChart1.Location = new System.Drawing.Point(11, 239);
+            this.cartesianChart1.Location = new System.Drawing.Point(11, 204);
             this.cartesianChart1.Name = "cartesianChart1";
-            this.cartesianChart1.Size = new System.Drawing.Size(1759, 479);
+            this.cartesianChart1.Size = new System.Drawing.Size(1759, 537);
             this.cartesianChart1.TabIndex = 27;
             this.cartesianChart1.Text = "cartesianChart1";
             // 
             // btnGraphiek
             // 
-            this.btnGraphiek.Location = new System.Drawing.Point(128, 181);
+            this.btnGraphiek.Location = new System.Drawing.Point(128, 146);
             this.btnGraphiek.Name = "btnGraphiek";
             this.btnGraphiek.Size = new System.Drawing.Size(111, 23);
             this.btnGraphiek.TabIndex = 40;
@@ -171,11 +174,44 @@
             this.btnGraphiek.UseVisualStyleBackColor = true;
             this.btnGraphiek.Click += new System.EventHandler(this.btnGraphiek_Click);
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(284, 175);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(238, 23);
+            this.button4.TabIndex = 41;
+            this.button4.Text = "Huisprijzen onder de 200.000 euro";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(528, 175);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(328, 23);
+            this.button5.TabIndex = 42;
+            this.button5.Text = "Huisprijzen tussen de 200.000 en 400.000 euro";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(862, 175);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(238, 23);
+            this.button6.TabIndex = 43;
+            this.button6.Text = "Huisprijzen boven de 400.000 euro";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1782, 753);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.btnGraphiek);
             this.Controls.Add(this.btnZoom);
             this.Controls.Add(this.btn7);
@@ -211,5 +247,8 @@
         private System.Windows.Forms.Button button1;
         private LiveCharts.WinForms.CartesianChart cartesianChart1;
         private System.Windows.Forms.Button btnGraphiek;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
     }
 }

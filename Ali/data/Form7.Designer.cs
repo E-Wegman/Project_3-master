@@ -45,7 +45,7 @@
             // 
             // btnGraphiek
             // 
-            this.btnGraphiek.Location = new System.Drawing.Point(129, 192);
+            this.btnGraphiek.Location = new System.Drawing.Point(130, 132);
             this.btnGraphiek.Name = "btnGraphiek";
             this.btnGraphiek.Size = new System.Drawing.Size(111, 23);
             this.btnGraphiek.TabIndex = 53;
@@ -55,7 +55,7 @@
             // 
             // btnZoom
             // 
-            this.btnZoom.Location = new System.Drawing.Point(13, 192);
+            this.btnZoom.Location = new System.Drawing.Point(14, 132);
             this.btnZoom.Name = "btnZoom";
             this.btnZoom.Size = new System.Drawing.Size(110, 23);
             this.btnZoom.TabIndex = 52;
@@ -65,7 +65,7 @@
             // 
             // btn7
             // 
-            this.btn7.Location = new System.Drawing.Point(246, 221);
+            this.btn7.Location = new System.Drawing.Point(247, 161);
             this.btn7.Name = "btn7";
             this.btn7.Size = new System.Drawing.Size(33, 23);
             this.btn7.TabIndex = 51;
@@ -75,7 +75,7 @@
             // 
             // btn6
             // 
-            this.btn6.Location = new System.Drawing.Point(207, 221);
+            this.btn6.Location = new System.Drawing.Point(208, 161);
             this.btn6.Name = "btn6";
             this.btn6.Size = new System.Drawing.Size(33, 23);
             this.btn6.TabIndex = 50;
@@ -85,7 +85,7 @@
             // 
             // btn5
             // 
-            this.btn5.Location = new System.Drawing.Point(168, 221);
+            this.btn5.Location = new System.Drawing.Point(169, 161);
             this.btn5.Name = "btn5";
             this.btn5.Size = new System.Drawing.Size(33, 23);
             this.btn5.TabIndex = 49;
@@ -95,7 +95,7 @@
             // 
             // btn4
             // 
-            this.btn4.Location = new System.Drawing.Point(129, 221);
+            this.btn4.Location = new System.Drawing.Point(130, 161);
             this.btn4.Name = "btn4";
             this.btn4.Size = new System.Drawing.Size(33, 23);
             this.btn4.TabIndex = 48;
@@ -105,7 +105,7 @@
             // 
             // btn3
             // 
-            this.btn3.Location = new System.Drawing.Point(90, 221);
+            this.btn3.Location = new System.Drawing.Point(91, 161);
             this.btn3.Name = "btn3";
             this.btn3.Size = new System.Drawing.Size(33, 23);
             this.btn3.TabIndex = 47;
@@ -115,7 +115,7 @@
             // 
             // btn2
             // 
-            this.btn2.Location = new System.Drawing.Point(51, 221);
+            this.btn2.Location = new System.Drawing.Point(52, 161);
             this.btn2.Name = "btn2";
             this.btn2.Size = new System.Drawing.Size(33, 23);
             this.btn2.TabIndex = 46;
@@ -125,7 +125,7 @@
             // 
             // btn1
             // 
-            this.btn1.Location = new System.Drawing.Point(12, 221);
+            this.btn1.Location = new System.Drawing.Point(13, 161);
             this.btn1.Name = "btn1";
             this.btn1.Size = new System.Drawing.Size(33, 23);
             this.btn1.TabIndex = 45;
@@ -165,9 +165,9 @@
             // 
             // cartesianChart1
             // 
-            this.cartesianChart1.Location = new System.Drawing.Point(12, 250);
+            this.cartesianChart1.Location = new System.Drawing.Point(13, 190);
             this.cartesianChart1.Name = "cartesianChart1";
-            this.cartesianChart1.Size = new System.Drawing.Size(1759, 479);
+            this.cartesianChart1.Size = new System.Drawing.Size(1759, 551);
             this.cartesianChart1.TabIndex = 41;
             this.cartesianChart1.Text = "cartesianChart1";
             // 

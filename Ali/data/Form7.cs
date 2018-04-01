@@ -17,7 +17,7 @@ namespace data
         public Form7()
         {
             InitializeComponent();
-            this.Text = "Huisprijzen";
+            this.Text = "Huizenprijzen";
         }
 
         private void Form7_Load(object sender, EventArgs e)
@@ -48,6 +48,7 @@ namespace data
 
                 cartesianChart1.Series.Add(Hcol);
                 cartesianChart1.Series.Add(HcolO);
+                cartesianChart1.LegendLocation = LegendLocation.Bottom;
 
                 //cartesianChart1.Series = new SeriesCollection
                 //{

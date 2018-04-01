@@ -32,6 +32,21 @@ namespace data
         public virtual DbSet<ov> ov { get; set; }
         public virtual DbSet<Weer> Weer { get; set; }
     
+        public virtual ObjectResult<hsp000k_Result> hsp000k()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<hsp000k_Result>("hsp000k");
+        }
+    
+        public virtual ObjectResult<hsp200k_Result> hsp200k()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<hsp200k_Result>("hsp200k");
+        }
+    
+        public virtual ObjectResult<hsp400k_Result> hsp400k()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<hsp400k_Result>("hsp400k");
+        }
+    
         public virtual ObjectResult<hspA_Result> hspA()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<hspA_Result>("hspA");
@@ -55,9 +70,34 @@ namespace data
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<wr_Result>("wr");
         }
     
+        public virtual ObjectResult<wr1_Result> wr1()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<wr1_Result>("wr1");
+        }
+    
+        public virtual ObjectResult<wr2_Result> wr2()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<wr2_Result>("wr2");
+        }
+    
+        public virtual ObjectResult<wr3_Result> wr3()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<wr3_Result>("wr3");
+        }
+    
+        public virtual ObjectResult<wr4_Result> wr4()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<wr4_Result>("wr4");
+        }
+    
         public virtual ObjectResult<wrO_Result> wrO()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<wrO_Result>("wrO");
+        }
+    
+        public virtual ObjectResult<wrP_Result> wrP()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<wrP_Result>("wrP");
         }
     
         public virtual ObjectResult<wz16_Result> wz16()
@@ -68,6 +108,11 @@ namespace data
         public virtual ObjectResult<wzA_Result> wzA()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<wzA_Result>("wzA");
+        }
+    
+        public virtual ObjectResult<wzP_Result> wzP()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<wzP_Result>("wzP");
         }
     }
 }

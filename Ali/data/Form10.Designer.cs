@@ -1,6 +1,6 @@
 ﻿namespace data
 {
-    partial class Form3
+    partial class Form10
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.button8 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.btn6 = new System.Windows.Forms.Button();
             this.btn5 = new System.Windows.Forms.Button();
             this.btn4 = new System.Windows.Forms.Button();
@@ -39,171 +42,168 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.cartesianChart1 = new LiveCharts.WinForms.CartesianChart();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.btnZoom = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(1420, 143);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(175, 23);
+            this.button8.TabIndex = 84;
+            this.button8.Text = "1/1/2012 t/m 30/6/2012";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(1239, 143);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(175, 23);
+            this.button7.TabIndex = 83;
+            this.button7.Text = "1/7/2011 t/m 31/12/2011";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(1058, 143);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(175, 23);
+            this.button6.TabIndex = 82;
+            this.button6.Text = "1/1/2011 t/m 30/6/2011";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // btn6
             // 
-            this.btn6.Location = new System.Drawing.Point(592, 183);
+            this.btn6.Location = new System.Drawing.Point(625, 143);
             this.btn6.Name = "btn6";
-            this.btn6.Size = new System.Drawing.Size(110, 23);
-            this.btn6.TabIndex = 43;
-            this.btn6.Text = "july 2011";
+            this.btn6.Size = new System.Drawing.Size(121, 23);
+            this.btn6.TabIndex = 81;
+            this.btn6.Text = "december 2012";
             this.btn6.UseVisualStyleBackColor = true;
             this.btn6.Click += new System.EventHandler(this.btn6_Click);
             // 
             // btn5
             // 
-            this.btn5.Location = new System.Drawing.Point(476, 183);
+            this.btn5.Location = new System.Drawing.Point(498, 143);
             this.btn5.Name = "btn5";
-            this.btn5.Size = new System.Drawing.Size(110, 23);
-            this.btn5.TabIndex = 42;
-            this.btn5.Text = "mei 2011";
+            this.btn5.Size = new System.Drawing.Size(121, 23);
+            this.btn5.TabIndex = 80;
+            this.btn5.Text = "november 2012";
             this.btn5.UseVisualStyleBackColor = true;
             this.btn5.Click += new System.EventHandler(this.btn5_Click);
             // 
             // btn4
             // 
-            this.btn4.Location = new System.Drawing.Point(360, 183);
+            this.btn4.Location = new System.Drawing.Point(371, 143);
             this.btn4.Name = "btn4";
-            this.btn4.Size = new System.Drawing.Size(110, 23);
-            this.btn4.TabIndex = 41;
-            this.btn4.Text = "april 2011";
+            this.btn4.Size = new System.Drawing.Size(121, 23);
+            this.btn4.TabIndex = 79;
+            this.btn4.Text = "oktober 2012";
             this.btn4.UseVisualStyleBackColor = true;
             this.btn4.Click += new System.EventHandler(this.btn4_Click);
             // 
             // btn3
             // 
-            this.btn3.Location = new System.Drawing.Point(244, 183);
+            this.btn3.Location = new System.Drawing.Point(244, 143);
             this.btn3.Name = "btn3";
-            this.btn3.Size = new System.Drawing.Size(110, 23);
-            this.btn3.TabIndex = 40;
-            this.btn3.Text = "maart 2011";
+            this.btn3.Size = new System.Drawing.Size(121, 23);
+            this.btn3.TabIndex = 78;
+            this.btn3.Text = "september 2012";
             this.btn3.UseVisualStyleBackColor = true;
             this.btn3.Click += new System.EventHandler(this.btn3_Click);
             // 
             // btn2
             // 
-            this.btn2.Location = new System.Drawing.Point(128, 183);
+            this.btn2.Location = new System.Drawing.Point(128, 143);
             this.btn2.Name = "btn2";
             this.btn2.Size = new System.Drawing.Size(110, 23);
-            this.btn2.TabIndex = 39;
-            this.btn2.Text = "februari 2011";
+            this.btn2.TabIndex = 77;
+            this.btn2.Text = "augustus 2012";
             this.btn2.UseVisualStyleBackColor = true;
             this.btn2.Click += new System.EventHandler(this.btn2_Click);
             // 
             // btn1
             // 
-            this.btn1.Location = new System.Drawing.Point(12, 183);
+            this.btn1.Location = new System.Drawing.Point(12, 143);
             this.btn1.Name = "btn1";
             this.btn1.Size = new System.Drawing.Size(110, 23);
-            this.btn1.TabIndex = 38;
-            this.btn1.Text = "januari 2011";
+            this.btn1.TabIndex = 76;
+            this.btn1.Text = "juli 2012";
             this.btn1.UseVisualStyleBackColor = true;
             this.btn1.Click += new System.EventHandler(this.btn1_Click);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(708, 183);
+            this.button4.Location = new System.Drawing.Point(752, 143);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(187, 23);
-            this.button4.TabIndex = 33;
+            this.button4.TabIndex = 75;
             this.button4.Text = "wisselen naar jaar";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(291, 23);
+            this.button3.Location = new System.Drawing.Point(294, 23);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(136, 32);
-            this.button3.TabIndex = 30;
+            this.button3.TabIndex = 74;
             this.button3.Text = "Weereffecten";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(149, 23);
+            this.button2.Location = new System.Drawing.Point(152, 23);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(136, 32);
-            this.button2.TabIndex = 29;
+            this.button2.TabIndex = 73;
             this.button2.Text = "Werkzoekende";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(7, 23);
+            this.button1.Location = new System.Drawing.Point(10, 23);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(136, 32);
-            this.button1.TabIndex = 28;
+            this.button1.TabIndex = 72;
             this.button1.Text = "Huizenprijzen";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // cartesianChart1
             // 
-            this.cartesianChart1.Location = new System.Drawing.Point(12, 212);
+            this.cartesianChart1.Location = new System.Drawing.Point(12, 172);
             this.cartesianChart1.Name = "cartesianChart1";
-            this.cartesianChart1.Size = new System.Drawing.Size(1764, 529);
-            this.cartesianChart1.TabIndex = 27;
+            this.cartesianChart1.Size = new System.Drawing.Size(1764, 569);
+            this.cartesianChart1.TabIndex = 71;
             this.cartesianChart1.Text = "cartesianChart1";
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(1376, 183);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(175, 23);
-            this.button8.TabIndex = 70;
-            this.button8.Text = "1/7/2012 t/m 31/12/2012";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(1195, 183);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(175, 23);
-            this.button7.TabIndex = 69;
-            this.button7.Text = "1/1/2012 t/m 30/6/2012";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(1014, 183);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(175, 23);
-            this.button6.TabIndex = 68;
-            this.button6.Text = "1/7/2011 t/m 31/12/2011";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // btnZoom
             // 
-            this.btnZoom.Location = new System.Drawing.Point(12, 154);
+            this.btnZoom.Location = new System.Drawing.Point(12, 114);
             this.btnZoom.Name = "btnZoom";
             this.btnZoom.Size = new System.Drawing.Size(110, 23);
-            this.btnZoom.TabIndex = 71;
+            this.btnZoom.TabIndex = 85;
             this.btnZoom.Text = "Zoom uit";
             this.btnZoom.UseVisualStyleBackColor = true;
             this.btnZoom.Click += new System.EventHandler(this.btnZoom_Click);
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(901, 183);
+            this.button9.Location = new System.Drawing.Point(945, 143);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(107, 23);
-            this.button9.TabIndex = 72;
+            this.button9.TabIndex = 86;
             this.button9.Text = "PieChart";
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
-            // Form3
+            // Form10
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -224,14 +224,18 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cartesianChart1);
-            this.Name = "Form3";
-            this.Text = "Form3";
-            this.Load += new System.EventHandler(this.Form3_Load);
+            this.Name = "Form10";
+            this.Text = "Form10";
+            this.Load += new System.EventHandler(this.Form10_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button btn6;
         private System.Windows.Forms.Button btn5;
         private System.Windows.Forms.Button btn4;
@@ -243,9 +247,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private LiveCharts.WinForms.CartesianChart cartesianChart1;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button btnZoom;
         private System.Windows.Forms.Button button9;
     }

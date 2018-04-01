@@ -12,20 +12,20 @@ using System.Windows.Forms;
 
 namespace data
 {
-    public partial class Form3 : Form
+    public partial class Form9 : Form
     {
-        public Form3()
+        public Form9()
         {
             InitializeComponent();
-            this.Text = "Weereffecten(1/1/2011 t/m 30/6/2011)";
+            this.Text = "Weereffecten(1/1/2012 t/m 30/6/2012)";
         }
 
-        private void Form3_Load(object sender, EventArgs e)
+        private void Form9_Load(object sender, EventArgs e)
         {
             using (StraatrovenEntities db = new StraatrovenEntities())
             {
-                var data = db.wr1();
-                
+                var data = db.wr3();
+
                 LineSeries col = new LineSeries() { Title = "Gemiddelde temperatuur bij overvallen per dag", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
                 LineSeries colO = new LineSeries() { Title = "Gemiddelde temperatuur in graden per dag", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
 
@@ -38,12 +38,12 @@ namespace data
                 foreach (var a in data)
 
                 {
-                col.Values.Add(a.ov);
-                colO.Values.Add(a.tmp);
-                ax.Labels.Add(a.mnd.ToString());
+                    col.Values.Add(a.ov);
+                    colO.Values.Add(a.tmp);
+                    ax.Labels.Add(a.mnd.ToString());
                 }
-                
-                   
+
+
 
                 cartesianChart1.Series.Add(col);
                 cartesianChart1.Series.Add(colO);
@@ -76,12 +76,6 @@ namespace data
             }
         }
 
-        public ColumnSeries Col { get; set; }
-        public ColumnSeries ColO { get; set; }
-
-
-        public object Data { get; private set; }
-
         private void button1_Click(object sender, EventArgs e)
         {
             (new Form2()).Show(); this.Hide();
@@ -92,41 +86,40 @@ namespace data
             (new Form1()).Show(); this.Close();
         }
 
-
         private void btn1_Click(object sender, EventArgs e)
         {
             cartesianChart1.AxisX[0].MinValue = 0;
-            cartesianChart1.AxisX[0].MaxValue = 30;
+            cartesianChart1.AxisX[0].MaxValue = 28;
         }
 
         private void btn2_Click(object sender, EventArgs e)
         {
-            cartesianChart1.AxisX[0].MinValue = 31;
-            cartesianChart1.AxisX[0].MaxValue = 56;
+            cartesianChart1.AxisX[0].MinValue = 29;
+            cartesianChart1.AxisX[0].MaxValue = 57;
         }
 
         private void btn3_Click(object sender, EventArgs e)
         {
-            cartesianChart1.AxisX[0].MinValue = 57;
-            cartesianChart1.AxisX[0].MaxValue = 83;
+            cartesianChart1.AxisX[0].MinValue = 58;
+            cartesianChart1.AxisX[0].MaxValue = 88;
         }
 
         private void btn4_Click(object sender, EventArgs e)
         {
-            cartesianChart1.AxisX[0].MinValue = 84;
-            cartesianChart1.AxisX[0].MaxValue = 112;
+            cartesianChart1.AxisX[0].MinValue = 89;
+            cartesianChart1.AxisX[0].MaxValue = 116;
         }
 
         private void btn5_Click(object sender, EventArgs e)
         {
-            cartesianChart1.AxisX[0].MinValue = 113;
-            cartesianChart1.AxisX[0].MaxValue = 142;
+            cartesianChart1.AxisX[0].MinValue = 117;
+            cartesianChart1.AxisX[0].MaxValue = 146;
         }
 
         private void btn6_Click(object sender, EventArgs e)
         {
-            cartesianChart1.AxisX[0].MinValue = 143;
-            cartesianChart1.AxisX[0].MaxValue = 164;
+            cartesianChart1.AxisX[0].MinValue = 148;
+            cartesianChart1.AxisX[0].MaxValue = 176;
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -136,12 +129,12 @@ namespace data
 
         private void button6_Click(object sender, EventArgs e)
         {
-            (new Form8()).Show(); this.Close();
+            (new Form3()).Show(); this.Close();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            (new Form9()).Show(); this.Close();
+            (new Form8()).Show(); this.Close();
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -152,7 +145,7 @@ namespace data
         private void btnZoom_Click(object sender, EventArgs e)
         {
             cartesianChart1.AxisX[0].MinValue = 0;
-            cartesianChart1.AxisX[0].MaxValue = 164;
+            cartesianChart1.AxisX[0].MaxValue = 176;
         }
 
         private void button9_Click(object sender, EventArgs e)

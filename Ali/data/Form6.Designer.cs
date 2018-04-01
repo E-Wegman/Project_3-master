@@ -49,11 +49,12 @@
             this.checkWz35 = new System.Windows.Forms.CheckBox();
             this.checkWzT = new System.Windows.Forms.CheckBox();
             this.btnDiagram = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnZoom
             // 
-            this.btnZoom.Location = new System.Drawing.Point(7, 192);
+            this.btnZoom.Location = new System.Drawing.Point(9, 158);
             this.btnZoom.Name = "btnZoom";
             this.btnZoom.Size = new System.Drawing.Size(110, 23);
             this.btnZoom.TabIndex = 45;
@@ -63,7 +64,7 @@
             // 
             // btn8
             // 
-            this.btn8.Location = new System.Drawing.Point(279, 221);
+            this.btn8.Location = new System.Drawing.Point(281, 187);
             this.btn8.Name = "btn8";
             this.btn8.Size = new System.Drawing.Size(33, 23);
             this.btn8.TabIndex = 44;
@@ -73,7 +74,7 @@
             // 
             // btn7
             // 
-            this.btn7.Location = new System.Drawing.Point(240, 221);
+            this.btn7.Location = new System.Drawing.Point(242, 187);
             this.btn7.Name = "btn7";
             this.btn7.Size = new System.Drawing.Size(33, 23);
             this.btn7.TabIndex = 43;
@@ -83,7 +84,7 @@
             // 
             // btn6
             // 
-            this.btn6.Location = new System.Drawing.Point(201, 221);
+            this.btn6.Location = new System.Drawing.Point(203, 187);
             this.btn6.Name = "btn6";
             this.btn6.Size = new System.Drawing.Size(33, 23);
             this.btn6.TabIndex = 42;
@@ -93,7 +94,7 @@
             // 
             // btn5
             // 
-            this.btn5.Location = new System.Drawing.Point(162, 221);
+            this.btn5.Location = new System.Drawing.Point(164, 187);
             this.btn5.Name = "btn5";
             this.btn5.Size = new System.Drawing.Size(33, 23);
             this.btn5.TabIndex = 41;
@@ -103,7 +104,7 @@
             // 
             // btn4
             // 
-            this.btn4.Location = new System.Drawing.Point(123, 221);
+            this.btn4.Location = new System.Drawing.Point(125, 187);
             this.btn4.Name = "btn4";
             this.btn4.Size = new System.Drawing.Size(33, 23);
             this.btn4.TabIndex = 40;
@@ -113,7 +114,7 @@
             // 
             // btn3
             // 
-            this.btn3.Location = new System.Drawing.Point(84, 221);
+            this.btn3.Location = new System.Drawing.Point(86, 187);
             this.btn3.Name = "btn3";
             this.btn3.Size = new System.Drawing.Size(33, 23);
             this.btn3.TabIndex = 39;
@@ -123,7 +124,7 @@
             // 
             // btn2
             // 
-            this.btn2.Location = new System.Drawing.Point(45, 221);
+            this.btn2.Location = new System.Drawing.Point(47, 187);
             this.btn2.Name = "btn2";
             this.btn2.Size = new System.Drawing.Size(33, 23);
             this.btn2.TabIndex = 38;
@@ -163,15 +164,15 @@
             // 
             // cartesianChart1
             // 
-            this.cartesianChart1.Location = new System.Drawing.Point(6, 250);
+            this.cartesianChart1.Location = new System.Drawing.Point(8, 216);
             this.cartesianChart1.Name = "cartesianChart1";
-            this.cartesianChart1.Size = new System.Drawing.Size(1625, 479);
+            this.cartesianChart1.Size = new System.Drawing.Size(1762, 525);
             this.cartesianChart1.TabIndex = 27;
             this.cartesianChart1.Text = "cartesianChart1";
             // 
             // btn1
             // 
-            this.btn1.Location = new System.Drawing.Point(6, 221);
+            this.btn1.Location = new System.Drawing.Point(8, 187);
             this.btn1.Name = "btn1";
             this.btn1.Size = new System.Drawing.Size(33, 23);
             this.btn1.TabIndex = 46;
@@ -182,7 +183,7 @@
             // checkWz15
             // 
             this.checkWz15.AutoSize = true;
-            this.checkWz15.Location = new System.Drawing.Point(1637, 308);
+            this.checkWz15.Location = new System.Drawing.Point(1629, 81);
             this.checkWz15.Name = "checkWz15";
             this.checkWz15.Size = new System.Drawing.Size(123, 21);
             this.checkWz15.TabIndex = 31;
@@ -193,7 +194,7 @@
             // checkWz20
             // 
             this.checkWz20.AutoSize = true;
-            this.checkWz20.Location = new System.Drawing.Point(1637, 335);
+            this.checkWz20.Location = new System.Drawing.Point(1629, 108);
             this.checkWz20.Name = "checkWz20";
             this.checkWz20.Size = new System.Drawing.Size(123, 21);
             this.checkWz20.TabIndex = 32;
@@ -203,7 +204,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(1637, 250);
+            this.button4.Location = new System.Drawing.Point(1629, 23);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 33;
@@ -213,7 +214,7 @@
             // checkWz25
             // 
             this.checkWz25.AutoSize = true;
-            this.checkWz25.Location = new System.Drawing.Point(1637, 362);
+            this.checkWz25.Location = new System.Drawing.Point(1629, 135);
             this.checkWz25.Name = "checkWz25";
             this.checkWz25.Size = new System.Drawing.Size(123, 21);
             this.checkWz25.TabIndex = 34;
@@ -224,7 +225,7 @@
             // checkWz30
             // 
             this.checkWz30.AutoSize = true;
-            this.checkWz30.Location = new System.Drawing.Point(1637, 389);
+            this.checkWz30.Location = new System.Drawing.Point(1629, 162);
             this.checkWz30.Name = "checkWz30";
             this.checkWz30.Size = new System.Drawing.Size(123, 21);
             this.checkWz30.TabIndex = 35;
@@ -235,7 +236,7 @@
             // checkWz35
             // 
             this.checkWz35.AutoSize = true;
-            this.checkWz35.Location = new System.Drawing.Point(1637, 416);
+            this.checkWz35.Location = new System.Drawing.Point(1629, 189);
             this.checkWz35.Name = "checkWz35";
             this.checkWz35.Size = new System.Drawing.Size(123, 21);
             this.checkWz35.TabIndex = 36;
@@ -246,7 +247,7 @@
             // checkWzT
             // 
             this.checkWzT.AutoSize = true;
-            this.checkWzT.Location = new System.Drawing.Point(1637, 281);
+            this.checkWzT.Location = new System.Drawing.Point(1629, 54);
             this.checkWzT.Name = "checkWzT";
             this.checkWzT.Size = new System.Drawing.Size(139, 21);
             this.checkWzT.TabIndex = 37;
@@ -256,7 +257,7 @@
             // 
             // btnDiagram
             // 
-            this.btnDiagram.Location = new System.Drawing.Point(123, 192);
+            this.btnDiagram.Location = new System.Drawing.Point(125, 158);
             this.btnDiagram.Name = "btnDiagram";
             this.btnDiagram.Size = new System.Drawing.Size(111, 23);
             this.btnDiagram.TabIndex = 47;
@@ -264,11 +265,22 @@
             this.btnDiagram.UseVisualStyleBackColor = true;
             this.btnDiagram.Click += new System.EventHandler(this.btnDiagram_Click);
             // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(242, 158);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(107, 23);
+            this.button9.TabIndex = 70;
+            this.button9.Text = "PieChart";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
             // Form6
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1782, 753);
+            this.Controls.Add(this.button9);
             this.Controls.Add(this.btnDiagram);
             this.Controls.Add(this.btn1);
             this.Controls.Add(this.btnZoom);
@@ -321,5 +333,6 @@
         private System.Windows.Forms.CheckBox checkWz35;
         private System.Windows.Forms.CheckBox checkWzT;
         private System.Windows.Forms.Button btnDiagram;
+        private System.Windows.Forms.Button button9;
     }
 }

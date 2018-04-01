@@ -24,7 +24,7 @@ namespace data
         public Nullable<int> district { get; set; }
         public string district_naam { get; set; }
         public int buurt { get; set; }
-        public Nullable<int> subbuurt { get; set; }
+        public string subbuurt { get; set; }
         public string straat { get; set; }
         public string opgelost { get; set; }
     }

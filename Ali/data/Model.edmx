@@ -43,7 +43,7 @@ warning 6002: The table/view 'straatroven.dbo.ov' does not have a primary key de
           <Property Name="district" Type="int" />
           <Property Name="district_naam" Type="varchar" MaxLength="50" />
           <Property Name="buurt" Type="int" Nullable="false" />
-          <Property Name="subbuurt" Type="int" />
+          <Property Name="subbuurt" Type="varchar" MaxLength="20" />
           <Property Name="straat" Type="varchar" MaxLength="50" />
           <Property Name="opgelost" Type="varchar" MaxLength="10" />
         </EntityType>
@@ -113,15 +113,24 @@ warning 6013: The table/view 'straatroven.dbo.wz' does not have a primary key de
           <Property Name="werkzoekende_55" Type="int" />
           <Property Name="gem_naam" Type="varchar" MaxLength="10" />
         </EntityType>-->
+        <Function Name="hsp000k" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="hsp200k" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="hsp400k" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="hspA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="Procedure" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="param1" Type="int" Mode="In" />
           <Parameter Name="param2" Type="int" Mode="In" />
         </Function>
         <Function Name="wr" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="wr1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="wr2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="wr3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="wr4" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="wrO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="wrP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="wz16" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="wzA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="wzP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="StraatrovenModelStoreContainer">
           <EntitySet Name="overvallen" EntityType="Self.overvallen" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="werkzoekende" EntityType="Self.werkzoekende" Schema="dbo" store:Type="Tables" />
@@ -168,7 +177,7 @@ warning 6013: The table/view 'straatroven.dbo.wz' does not have a primary key de
           <Property Name="district" Type="Int32" />
           <Property Name="district_naam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="buurt" Type="Int32" Nullable="false" />
-          <Property Name="subbuurt" Type="Int32" />
+          <Property Name="subbuurt" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="straat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="opgelost" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
@@ -230,16 +239,40 @@ warning 6013: The table/view 'straatroven.dbo.wz' does not have a primary key de
           <EntitySet Name="werkzoekende" EntityType="Self.werkzoekende" />
           <EntitySet Name="ov" EntityType="Self.ov" />
           <EntitySet Name="Weer" EntityType="Self.Weer" />
+          <FunctionImport Name="hsp000k" ReturnType="Collection(StraatrovenModel.hsp000k_Result)" />
+          <FunctionImport Name="hsp200k" ReturnType="Collection(StraatrovenModel.hsp200k_Result)" />
+          <FunctionImport Name="hsp400k" ReturnType="Collection(StraatrovenModel.hsp400k_Result)" />
           <FunctionImport Name="hspA" ReturnType="Collection(StraatrovenModel.hspA_Result)" />
           <FunctionImport Name="Procedure" ReturnType="Collection(StraatrovenModel.Procedure_Result)">
             <Parameter Name="param1" Mode="In" Type="Int32" />
             <Parameter Name="param2" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="wr" ReturnType="Collection(StraatrovenModel.wr_Result)" />
+          <FunctionImport Name="wr1" ReturnType="Collection(StraatrovenModel.wr1_Result)" />
+          <FunctionImport Name="wr2" ReturnType="Collection(StraatrovenModel.wr2_Result)" />
+          <FunctionImport Name="wr3" ReturnType="Collection(StraatrovenModel.wr3_Result)" />
+          <FunctionImport Name="wr4" ReturnType="Collection(StraatrovenModel.wr4_Result)" />
           <FunctionImport Name="wrO" ReturnType="Collection(StraatrovenModel.wrO_Result)" />
+          <FunctionImport Name="wrP" ReturnType="Collection(StraatrovenModel.wrP_Result)" />
           <FunctionImport Name="wz16" ReturnType="Collection(StraatrovenModel.wz16_Result)" />
           <FunctionImport Name="wzA" ReturnType="Collection(StraatrovenModel.wzA_Result)" />
+          <FunctionImport Name="wzP" ReturnType="Collection(StraatrovenModel.wzP_Result)" />
         </EntityContainer>
+        <ComplexType Name="hsp000k_Result">
+          <Property Type="Int32" Name="ov" Nullable="true" />
+          <Property Type="Int32" Name="hsp" Nullable="true" />
+          <Property Type="String" Name="bn" Nullable="false" MaxLength="51" />
+        </ComplexType>
+        <ComplexType Name="hsp200k_Result">
+          <Property Type="Int32" Name="ov" Nullable="true" />
+          <Property Type="Int32" Name="hsp" Nullable="true" />
+          <Property Type="String" Name="bn" Nullable="false" MaxLength="51" />
+        </ComplexType>
+        <ComplexType Name="hsp400k_Result">
+          <Property Type="Int32" Name="ov" Nullable="true" />
+          <Property Type="Int32" Name="hsp" Nullable="true" />
+          <Property Type="String" Name="bn" Nullable="false" MaxLength="51" />
+        </ComplexType>
         <ComplexType Name="hspA_Result">
           <Property Type="Int32" Name="ov" Nullable="true" />
           <Property Type="Int32" Name="hsp" Nullable="true" />
@@ -254,10 +287,38 @@ warning 6013: The table/view 'straatroven.dbo.wz' does not have a primary key de
           <Property Type="Int32" Name="ov" Nullable="true" />
           <Property Type="Int32" Name="tmp" Nullable="true" />
         </ComplexType>
+        <ComplexType Name="wr1_Result">
+          <Property Type="DateTime" Name="mnd" Nullable="true" />
+          <Property Type="Int32" Name="ov" Nullable="true" />
+          <Property Type="Int32" Name="tmp" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="wr2_Result">
+          <Property Type="DateTime" Name="mnd" Nullable="true" />
+          <Property Type="Int32" Name="ov" Nullable="true" />
+          <Property Type="Int32" Name="tmp" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="wr3_Result">
+          <Property Type="DateTime" Name="mnd" Nullable="true" />
+          <Property Type="Int32" Name="ov" Nullable="true" />
+          <Property Type="Int32" Name="tmp" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="wr4_Result">
+          <Property Type="DateTime" Name="mnd" Nullable="true" />
+          <Property Type="Int32" Name="ov" Nullable="true" />
+          <Property Type="Int32" Name="tmp" Nullable="true" />
+        </ComplexType>
         <ComplexType Name="wrO_Result">
           <Property Type="DateTime" Name="mnd" Nullable="true" />
           <Property Type="Int32" Name="ov" Nullable="true" />
           <Property Type="Int32" Name="tmp" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="wrP_Result">
+          <Property Type="Int32" Name="rest" Nullable="true" />
+          <Property Type="Int32" Name="sneeuw" Nullable="true" />
+          <Property Type="Int32" Name="ijsvorming" Nullable="true" />
+          <Property Type="Int32" Name="regen" Nullable="true" />
+          <Property Type="Int32" Name="mist" Nullable="true" />
+          <Property Type="Int32" Name="onweer" Nullable="true" />
         </ComplexType>
         <ComplexType Name="wz16_Result">
           <Property Type="String" Name="bn" Nullable="false" MaxLength="20" />
@@ -273,6 +334,14 @@ warning 6013: The table/view 'straatroven.dbo.wz' does not have a primary key de
           <Property Type="Int32" Name="wz45" Nullable="true" />
           <Property Type="Int32" Name="wz55" Nullable="true" />
           <Property Type="Int32" Name="ov" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="wzP_Result">
+          <Property Type="Int32" Name="overvallen" Nullable="true" />
+          <Property Type="Int32" Name="wz15" Nullable="true" />
+          <Property Type="Int32" Name="wz25" Nullable="true" />
+          <Property Type="Int32" Name="wz35" Nullable="true" />
+          <Property Type="Int32" Name="wz45" Nullable="true" />
+          <Property Type="Int32" Name="wz55" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -343,6 +412,33 @@ warning 6013: The table/view 'straatroven.dbo.wz' does not have a primary key de
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="hsp000k" FunctionName="StraatrovenModel.Store.hsp000k">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StraatrovenModel.hsp000k_Result">
+                <ScalarProperty Name="ov" ColumnName="ov" />
+                <ScalarProperty Name="hsp" ColumnName="hsp" />
+                <ScalarProperty Name="bn" ColumnName="bn" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="hsp200k" FunctionName="StraatrovenModel.Store.hsp200k">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StraatrovenModel.hsp200k_Result">
+                <ScalarProperty Name="ov" ColumnName="ov" />
+                <ScalarProperty Name="hsp" ColumnName="hsp" />
+                <ScalarProperty Name="bn" ColumnName="bn" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="hsp400k" FunctionName="StraatrovenModel.Store.hsp400k">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StraatrovenModel.hsp400k_Result">
+                <ScalarProperty Name="ov" ColumnName="ov" />
+                <ScalarProperty Name="hsp" ColumnName="hsp" />
+                <ScalarProperty Name="bn" ColumnName="bn" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="hspA" FunctionName="StraatrovenModel.Store.hspA">
             <ResultMapping>
               <ComplexTypeMapping TypeName="StraatrovenModel.hspA_Result">
@@ -369,12 +465,60 @@ warning 6013: The table/view 'straatroven.dbo.wz' does not have a primary key de
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="wr1" FunctionName="StraatrovenModel.Store.wr1">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StraatrovenModel.wr1_Result">
+                <ScalarProperty Name="mnd" ColumnName="mnd" />
+                <ScalarProperty Name="ov" ColumnName="ov" />
+                <ScalarProperty Name="tmp" ColumnName="tmp" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="wr2" FunctionName="StraatrovenModel.Store.wr2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StraatrovenModel.wr2_Result">
+                <ScalarProperty Name="mnd" ColumnName="mnd" />
+                <ScalarProperty Name="ov" ColumnName="ov" />
+                <ScalarProperty Name="tmp" ColumnName="tmp" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="wr3" FunctionName="StraatrovenModel.Store.wr3">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StraatrovenModel.wr3_Result">
+                <ScalarProperty Name="mnd" ColumnName="mnd" />
+                <ScalarProperty Name="ov" ColumnName="ov" />
+                <ScalarProperty Name="tmp" ColumnName="tmp" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="wr4" FunctionName="StraatrovenModel.Store.wr4">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StraatrovenModel.wr4_Result">
+                <ScalarProperty Name="mnd" ColumnName="mnd" />
+                <ScalarProperty Name="ov" ColumnName="ov" />
+                <ScalarProperty Name="tmp" ColumnName="tmp" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="wrO" FunctionName="StraatrovenModel.Store.wrO">
             <ResultMapping>
               <ComplexTypeMapping TypeName="StraatrovenModel.wrO_Result">
                 <ScalarProperty Name="mnd" ColumnName="mnd" />
                 <ScalarProperty Name="ov" ColumnName="ov" />
                 <ScalarProperty Name="tmp" ColumnName="tmp" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="wrP" FunctionName="StraatrovenModel.Store.wrP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StraatrovenModel.wrP_Result">
+                <ScalarProperty Name="rest" ColumnName="rest" />
+                <ScalarProperty Name="sneeuw" ColumnName="sneeuw" />
+                <ScalarProperty Name="ijsvorming" ColumnName="ijsvorming" />
+                <ScalarProperty Name="regen" ColumnName="regen" />
+                <ScalarProperty Name="mist" ColumnName="mist" />
+                <ScalarProperty Name="onweer" ColumnName="onweer" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -398,6 +542,18 @@ warning 6013: The table/view 'straatroven.dbo.wz' does not have a primary key de
                 <ScalarProperty Name="wz45" ColumnName="wz45" />
                 <ScalarProperty Name="wz55" ColumnName="wz55" />
                 <ScalarProperty Name="ov" ColumnName="ov" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="wzP" FunctionName="StraatrovenModel.Store.wzP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StraatrovenModel.wzP_Result">
+                <ScalarProperty Name="overvallen" ColumnName="overvallen" />
+                <ScalarProperty Name="wz15" ColumnName="wz15" />
+                <ScalarProperty Name="wz25" ColumnName="wz25" />
+                <ScalarProperty Name="wz35" ColumnName="wz35" />
+                <ScalarProperty Name="wz45" ColumnName="wz45" />
+                <ScalarProperty Name="wz55" ColumnName="wz55" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

@@ -63,6 +63,7 @@ namespace data
                 cartesianChart1.Series.Add(ColF);
                 cartesianChart1.Series.Add(ColFi);
                 cartesianChart1.Series.Add(ColS);
+                cartesianChart1.LegendLocation = LegendLocation.Bottom;
 
 
                 //cartesianChart1.Series = new SeriesCollection
@@ -208,6 +209,11 @@ namespace data
         private void btnDiagram_Click(object sender, EventArgs e)
         {
             (new Form3()).Show(); this.Hide();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            (new Form5()).Show(); this.Hide();
         }
     }
 }
