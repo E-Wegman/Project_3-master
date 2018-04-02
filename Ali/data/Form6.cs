@@ -18,7 +18,7 @@ namespace data
         public Form6()
         {
             InitializeComponent();
-            this.Text = "Werkzoekende";
+            this.Text = "Werkzoekenden grafiek";
         }
 
         private void Form6_Load(object sender, EventArgs e)
@@ -28,12 +28,12 @@ namespace data
                 var data = db.wzA();
 
                 Col = new LineSeries() { Title = "Werkzoekende totaal", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
-                ColO = new LineSeries() { Title = "Werkzoekende 15 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
-                ColT = new LineSeries() { Title = "Werkzoekende 25 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
-                ColTr = new LineSeries() { Title = "Werkzoekende 35 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
-                ColF = new LineSeries() { Title = "Werkzoekende 45 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
-                ColFi = new LineSeries() { Title = "Werkzoekende 55 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
-                ColS = new LineSeries() { Title = "Overvallen", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                ColO = new LineSeries() { Title = "Werkzoekenden 15 t/m 24 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                ColT = new LineSeries() { Title = "Werkzoekenden 25 t/m 34 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                ColTr = new LineSeries() { Title = "Werkzoekenden 35 t/m 44 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                ColF = new LineSeries() { Title = "Werkzoekenden 45 t/m 54 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                ColFi = new LineSeries() { Title = "Werkzoekenden 55 t/m 65 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                ColS = new LineSeries() { Title = "Overvallen per buurt", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
 
 
                 Axis ax = new Axis() { Separator = new Separator() { Step = 1, IsEnabled = false } };
@@ -208,7 +208,7 @@ namespace data
 
         private void btnDiagram_Click(object sender, EventArgs e)
         {
-            (new Form3()).Show(); this.Hide();
+            (new Form1()).Show(); this.Hide();
         }
 
         private void button9_Click(object sender, EventArgs e)

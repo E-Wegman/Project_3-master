@@ -17,7 +17,7 @@ namespace data
         public Form4()
         {
             InitializeComponent();
-            this.Text = "Weereffecten";
+            this.Text = "Weersomstandigheden jaaroverzicht";
         }
 
         private void Form4_Load(object sender, EventArgs e)
@@ -26,8 +26,8 @@ namespace data
             {
                 var data = db.wr();
                 
-                LineSeries col = new LineSeries() { Title = "Gemiddelde Temperatuur bij overvallen per maand", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
-                LineSeries colO = new LineSeries() { Title = "Gemiddelde temperatuur in graden per maand", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                LineSeries col = new LineSeries() { Title = "Gemiddelde temperatuur bij overvallen in graden Celsius per dag", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                LineSeries colO = new LineSeries() { Title = "Gemiddelde temperatuur in graden Celsius per dag", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
 
 
                 Axis ax = new Axis() { Separator = new Separator() { Step = 1, IsEnabled = false } };

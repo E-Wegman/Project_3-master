@@ -17,7 +17,7 @@ namespace data
         public Form7()
         {
             InitializeComponent();
-            this.Text = "Huizenprijzen";
+            this.Text = "Huizenprijzen Grafiek";
         }
 
         private void Form7_Load(object sender, EventArgs e)
@@ -26,7 +26,7 @@ namespace data
             {
                 var data = db.hspA();
 
-                Hcol = new LineSeries() { Title = "Overvallen", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                Hcol = new LineSeries() { Title = "Overvallen per buurt", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
                 HcolO = new LineSeries() { Title = "Prijzen in euro(x1000)", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
 
                 Axis ax = new Axis() { Separator = new Separator() { Step = 1, IsEnabled = false } };

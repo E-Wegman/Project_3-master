@@ -17,7 +17,7 @@ namespace data
         public Form5()
         {
             InitializeComponent();
-            this.Text = "Werkzoekende PieChart";
+            this.Text = "Werkzoekenden Cirkeldiagram";
         }
 
         private void Form5_Load(object sender, EventArgs e)
@@ -27,12 +27,12 @@ namespace data
                 var data = db.wzP();
 
                 //PieSeries Col = new PieSeries() { Title = "Werkzoekende totaal", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
-                PieSeries ColO = new PieSeries() { Title = "Werkzoekende 15 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
-                PieSeries ColT = new PieSeries() { Title = "Werkzoekende 25 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
-                PieSeries ColTr = new PieSeries() { Title = "Werkzoekende 35 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
-                PieSeries ColF = new PieSeries() { Title = "Werkzoekende 45 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
-                PieSeries ColFi = new PieSeries() { Title = "Werkzoekende 55 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
-                PieSeries ColS = new PieSeries() { Title = "Overvallen", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                PieSeries ColO = new PieSeries() { Title = "Werkzoekenden 15 t/m 24 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                PieSeries ColT = new PieSeries() { Title = "Werkzoekenden 25 t/m 34 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                PieSeries ColTr = new PieSeries() { Title = "Werkzoekenden 35 t/m 44 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                PieSeries ColF = new PieSeries() { Title = "Werkzoekenden 45 t/m 54 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                PieSeries ColFi = new PieSeries() { Title = "Werkzoekenden 55 t/m 65 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                PieSeries ColS = new PieSeries() { Title = "Totaal overvallen", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
 
                 //RowSeries ColSe = new RowSeries() { Title = "Werkzoekende 15 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
                 //RowSeries ColE = new RowSeries() { Title = "Werkzoekende 25 jaar oud", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };

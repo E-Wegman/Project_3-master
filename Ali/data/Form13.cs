@@ -26,7 +26,7 @@ namespace data
             {
                 var data = db.hsp000k();
 
-                Hcol = new ColumnSeries() { Title = "Overvallen", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                Hcol = new ColumnSeries() { Title = "Overvallen per buurt", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
                 HcolO = new ColumnSeries() { Title = "Prijzen in euro(x1000)", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
 
                 Axis ax = new Axis() { Separator = new Separator() { Step = 1, IsEnabled = false } };

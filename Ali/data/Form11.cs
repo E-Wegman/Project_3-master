@@ -17,7 +17,7 @@ namespace data
         public Form11()
         {
             InitializeComponent();
-            this.Text = "Weereffecten PieChart";
+            this.Text = "Weersomstandigheden cirkeldiagram";
         }
 
         private void Form11_Load(object sender, EventArgs e)

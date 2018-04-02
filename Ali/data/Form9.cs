@@ -17,7 +17,7 @@ namespace data
         public Form9()
         {
             InitializeComponent();
-            this.Text = "Weereffecten(1/1/2012 t/m 30/6/2012)";
+            this.Text = "Weersomstandigheden (1/1/2012 t/m 30/6/2012)";
         }
 
         private void Form9_Load(object sender, EventArgs e)
@@ -26,8 +26,8 @@ namespace data
             {
                 var data = db.wr3();
 
-                LineSeries col = new LineSeries() { Title = "Gemiddelde temperatuur bij overvallen per dag", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
-                LineSeries colO = new LineSeries() { Title = "Gemiddelde temperatuur in graden per dag", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                LineSeries col = new LineSeries() { Title = "Gemiddelde temperatuur bij overvallen in graden Celsius per dag", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
+                LineSeries colO = new LineSeries() { Title = "Gemiddelde temperatuur in graden Celsius per dag", DataLabels = true, Values = new ChartValues<int>(), LabelPoint = point => point.Y.ToString() };
 
 
                 Axis ax = new Axis() { Separator = new Separator() { Step = 1, IsEnabled = false } };

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.cartesianChart1 = new LiveCharts.WinForms.CartesianChart();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -50,6 +51,7 @@
             this.btnZoom = new System.Windows.Forms.Button();
             this.btnGraphiek = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // cartesianChart1
@@ -63,38 +65,40 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(13, 22);
+            this.button1.Location = new System.Drawing.Point(12, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(136, 32);
+            this.button1.Size = new System.Drawing.Size(136, 40);
             this.button1.TabIndex = 1;
             this.button1.Text = "Huizenprijzen";
+            this.toolTip1.SetToolTip(this.button1, "Navigeer naar huizenprijzen deelvraag");
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            this.button1.MouseHover += new System.EventHandler(this.button1_MouseHover);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(155, 22);
+            this.button2.Location = new System.Drawing.Point(154, 12);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(136, 32);
+            this.button2.Size = new System.Drawing.Size(136, 40);
             this.button2.TabIndex = 2;
-            this.button2.Text = "Werkzoekende";
+            this.button2.Text = "Werkzoekenden";
+            this.toolTip1.SetToolTip(this.button2, "Navigeer naar werkzoekenden deelvraag");
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(297, 22);
+            this.button3.Location = new System.Drawing.Point(296, 12);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(136, 32);
+            this.button3.Size = new System.Drawing.Size(168, 40);
             this.button3.TabIndex = 3;
-            this.button3.Text = "Weereffecten";
+            this.button3.Text = "Weersomstandigheden";
+            this.toolTip1.SetToolTip(this.button3, "Navigeer naar weersomstandigheden deelvraag");
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // checkWz15
             // 
             this.checkWz15.AutoSize = true;
-            this.checkWz15.Location = new System.Drawing.Point(1631, 70);
+            this.checkWz15.Location = new System.Drawing.Point(1627, 70);
             this.checkWz15.Name = "checkWz15";
             this.checkWz15.Size = new System.Drawing.Size(123, 21);
             this.checkWz15.TabIndex = 4;
@@ -105,7 +109,7 @@
             // checkWz20
             // 
             this.checkWz20.AutoSize = true;
-            this.checkWz20.Location = new System.Drawing.Point(1631, 97);
+            this.checkWz20.Location = new System.Drawing.Point(1627, 97);
             this.checkWz20.Name = "checkWz20";
             this.checkWz20.Size = new System.Drawing.Size(123, 21);
             this.checkWz20.TabIndex = 5;
@@ -115,17 +119,18 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(1631, 12);
+            this.button4.Location = new System.Drawing.Point(1627, 7);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.Size = new System.Drawing.Size(123, 30);
             this.button4.TabIndex = 6;
             this.button4.Text = "Leeftijd";
+            this.toolTip1.SetToolTip(this.button4, "Variabele uitschakelen");
             this.button4.UseVisualStyleBackColor = true;
             // 
             // checkWz25
             // 
             this.checkWz25.AutoSize = true;
-            this.checkWz25.Location = new System.Drawing.Point(1631, 124);
+            this.checkWz25.Location = new System.Drawing.Point(1627, 124);
             this.checkWz25.Name = "checkWz25";
             this.checkWz25.Size = new System.Drawing.Size(123, 21);
             this.checkWz25.TabIndex = 7;
@@ -136,7 +141,7 @@
             // checkWz30
             // 
             this.checkWz30.AutoSize = true;
-            this.checkWz30.Location = new System.Drawing.Point(1631, 151);
+            this.checkWz30.Location = new System.Drawing.Point(1627, 151);
             this.checkWz30.Name = "checkWz30";
             this.checkWz30.Size = new System.Drawing.Size(123, 21);
             this.checkWz30.TabIndex = 8;
@@ -147,7 +152,7 @@
             // checkWz35
             // 
             this.checkWz35.AutoSize = true;
-            this.checkWz35.Location = new System.Drawing.Point(1631, 178);
+            this.checkWz35.Location = new System.Drawing.Point(1627, 178);
             this.checkWz35.Name = "checkWz35";
             this.checkWz35.Size = new System.Drawing.Size(123, 21);
             this.checkWz35.TabIndex = 9;
@@ -158,7 +163,7 @@
             // checkWzT
             // 
             this.checkWzT.AutoSize = true;
-            this.checkWzT.Location = new System.Drawing.Point(1631, 43);
+            this.checkWzT.Location = new System.Drawing.Point(1627, 43);
             this.checkWzT.Name = "checkWzT";
             this.checkWzT.Size = new System.Drawing.Size(139, 21);
             this.checkWzT.TabIndex = 15;
@@ -168,111 +173,122 @@
             // 
             // btn1
             // 
-            this.btn1.Location = new System.Drawing.Point(11, 164);
+            this.btn1.Location = new System.Drawing.Point(13, 151);
             this.btn1.Name = "btn1";
-            this.btn1.Size = new System.Drawing.Size(33, 23);
+            this.btn1.Size = new System.Drawing.Size(33, 30);
             this.btn1.TabIndex = 18;
             this.btn1.Text = "1";
+            this.toolTip1.SetToolTip(this.btn1, "Zoom in");
             this.btn1.UseVisualStyleBackColor = true;
             this.btn1.Click += new System.EventHandler(this.btn1_Click);
             // 
             // btn2
             // 
-            this.btn2.Location = new System.Drawing.Point(50, 164);
+            this.btn2.Location = new System.Drawing.Point(52, 151);
             this.btn2.Name = "btn2";
-            this.btn2.Size = new System.Drawing.Size(33, 23);
+            this.btn2.Size = new System.Drawing.Size(33, 30);
             this.btn2.TabIndex = 19;
             this.btn2.Text = "2";
+            this.toolTip1.SetToolTip(this.btn2, "Zoom in");
             this.btn2.UseVisualStyleBackColor = true;
             this.btn2.Click += new System.EventHandler(this.btn2_Click);
             // 
             // btn3
             // 
-            this.btn3.Location = new System.Drawing.Point(89, 164);
+            this.btn3.Location = new System.Drawing.Point(91, 151);
             this.btn3.Name = "btn3";
-            this.btn3.Size = new System.Drawing.Size(33, 23);
+            this.btn3.Size = new System.Drawing.Size(33, 30);
             this.btn3.TabIndex = 20;
             this.btn3.Text = "3";
+            this.toolTip1.SetToolTip(this.btn3, "Zoom in");
             this.btn3.UseVisualStyleBackColor = true;
             this.btn3.Click += new System.EventHandler(this.btn3_Click);
             // 
             // btn4
             // 
-            this.btn4.Location = new System.Drawing.Point(128, 164);
+            this.btn4.Location = new System.Drawing.Point(130, 151);
             this.btn4.Name = "btn4";
-            this.btn4.Size = new System.Drawing.Size(33, 23);
+            this.btn4.Size = new System.Drawing.Size(33, 30);
             this.btn4.TabIndex = 21;
             this.btn4.Text = "4";
+            this.toolTip1.SetToolTip(this.btn4, "Zoom in");
             this.btn4.UseVisualStyleBackColor = true;
             this.btn4.Click += new System.EventHandler(this.btn4_Click);
             // 
             // btn5
             // 
-            this.btn5.Location = new System.Drawing.Point(167, 164);
+            this.btn5.Location = new System.Drawing.Point(169, 151);
             this.btn5.Name = "btn5";
-            this.btn5.Size = new System.Drawing.Size(33, 23);
+            this.btn5.Size = new System.Drawing.Size(33, 30);
             this.btn5.TabIndex = 22;
             this.btn5.Text = "5";
+            this.toolTip1.SetToolTip(this.btn5, "Zoom in");
             this.btn5.UseVisualStyleBackColor = true;
             this.btn5.Click += new System.EventHandler(this.btn5_Click);
             // 
             // btn8
             // 
-            this.btn8.Location = new System.Drawing.Point(284, 164);
+            this.btn8.Location = new System.Drawing.Point(286, 151);
             this.btn8.Name = "btn8";
-            this.btn8.Size = new System.Drawing.Size(33, 23);
+            this.btn8.Size = new System.Drawing.Size(33, 30);
             this.btn8.TabIndex = 25;
             this.btn8.Text = "8";
+            this.toolTip1.SetToolTip(this.btn8, "Zoom in");
             this.btn8.UseVisualStyleBackColor = true;
             this.btn8.Click += new System.EventHandler(this.btn8_Click);
             // 
             // btn7
             // 
-            this.btn7.Location = new System.Drawing.Point(245, 164);
+            this.btn7.Location = new System.Drawing.Point(247, 151);
             this.btn7.Name = "btn7";
-            this.btn7.Size = new System.Drawing.Size(33, 23);
+            this.btn7.Size = new System.Drawing.Size(33, 30);
             this.btn7.TabIndex = 24;
             this.btn7.Text = "7";
+            this.toolTip1.SetToolTip(this.btn7, "Zoom in");
             this.btn7.UseVisualStyleBackColor = true;
             this.btn7.Click += new System.EventHandler(this.btn7_Click);
             // 
             // btn6
             // 
-            this.btn6.Location = new System.Drawing.Point(206, 164);
+            this.btn6.Location = new System.Drawing.Point(208, 151);
             this.btn6.Name = "btn6";
-            this.btn6.Size = new System.Drawing.Size(33, 23);
+            this.btn6.Size = new System.Drawing.Size(33, 30);
             this.btn6.TabIndex = 23;
             this.btn6.Text = "6";
+            this.toolTip1.SetToolTip(this.btn6, "Zoom in");
             this.btn6.UseVisualStyleBackColor = true;
             this.btn6.Click += new System.EventHandler(this.btn6_Click);
             // 
             // btnZoom
             // 
-            this.btnZoom.Location = new System.Drawing.Point(12, 135);
+            this.btnZoom.Location = new System.Drawing.Point(14, 115);
             this.btnZoom.Name = "btnZoom";
-            this.btnZoom.Size = new System.Drawing.Size(110, 23);
+            this.btnZoom.Size = new System.Drawing.Size(110, 30);
             this.btnZoom.TabIndex = 26;
             this.btnZoom.Text = "Zoom uit";
+            this.toolTip1.SetToolTip(this.btnZoom, "Na het inzoomen, klik om uit te zoomen");
             this.btnZoom.UseVisualStyleBackColor = true;
             this.btnZoom.Click += new System.EventHandler(this.btnZoom_Click_1);
             // 
             // btnGraphiek
             // 
-            this.btnGraphiek.Location = new System.Drawing.Point(128, 135);
+            this.btnGraphiek.Location = new System.Drawing.Point(130, 115);
             this.btnGraphiek.Name = "btnGraphiek";
-            this.btnGraphiek.Size = new System.Drawing.Size(111, 23);
+            this.btnGraphiek.Size = new System.Drawing.Size(111, 30);
             this.btnGraphiek.TabIndex = 27;
-            this.btnGraphiek.Text = "Graphiek";
+            this.btnGraphiek.Text = "Grafiek";
+            this.toolTip1.SetToolTip(this.btnGraphiek, "Klik om de staafdiagram om te zetten in een grafiek");
             this.btnGraphiek.UseVisualStyleBackColor = true;
             this.btnGraphiek.Click += new System.EventHandler(this.btnGraphiek_Click);
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(245, 135);
+            this.button9.Location = new System.Drawing.Point(247, 115);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(107, 23);
+            this.button9.Size = new System.Drawing.Size(107, 30);
             this.button9.TabIndex = 69;
-            this.button9.Text = "PieChart";
+            this.button9.Text = "Cirkeldiagram";
+            this.toolTip1.SetToolTip(this.button9, "Percentage overvallen bij bepaalde weersomstandigheden");
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
@@ -335,6 +351,7 @@
         private System.Windows.Forms.Button btnZoom;
         private System.Windows.Forms.Button btnGraphiek;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 
